@@ -1,0 +1,56 @@
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<main aria-labelledby="title">
+    <div class="login">
+        <div class="form-login d-flex justify-content-center align-items-center">
+            <div class="form-value">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <form action="">
+                        <h2 class="text-center fs-2 text-white fw-bold">Login</h2>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="inputbox">
+                            <i id="icon" class="fa-solid fa-envelope"></i>
+                            <input type="text" id="Email" name="Email" required autocomplete="off" />
+                            <label for="">Email @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })</label>
+                        </div>
+
+                        <div class="inputbox">
+                            <a id="show"><i class="fa-solid fa-eye-slash"></i></a>
+                            <input type="password" id="password" name="password" required autocomplete="off" />
+                            <label for="">Password @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</label>
+                        </div>
+                        <div class="remember-password">
+                            <label for="@Html.IdFor(m => m.RememberMe)">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                <span>Remember Me</span>
+                            </label>
+
+                            <a class="ForgotPassword" href="ForgotPassword">Forget Password</a>
+                        </div>
+                        <button type="submit" class="btn-login text-dark">Log in</button>
+                        <div class="register">
+                            <p>Don't have a account <a class="aregister" href="Register">Register</a></p>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    document.getElementById('show').onclick = function () {
+        let password = document.getElementById('password');
+        password.type = password.type == 'password' ? 'text' : 'password';
+    }
+</script>

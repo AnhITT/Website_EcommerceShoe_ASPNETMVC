@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website_EcommerceShoe_ASPNETMVC", "Website_EcommerceShoe_ASPNETMVC\Website_EcommerceShoe_ASPNETMVC.csproj", "{72C26059-6A69-4CA5-9939-E9B1433ED2D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72C26059-6A69-4CA5-9939-E9B1433ED2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C26059-6A69-4CA5-9939-E9B1433ED2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C26059-6A69-4CA5-9939-E9B1433ED2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C26059-6A69-4CA5-9939-E9B1433ED2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92554544-606B-4543-8E99-5127B2B03BE9}
+	EndGlobalSection
+EndGlobal

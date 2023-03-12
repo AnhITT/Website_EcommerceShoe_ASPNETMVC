@@ -1,0 +1,207 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" href="~/Content/faviconn.ico">
+    @Scripts.Render("~/bundles/modernizr")
+    <title>TANA</title>
+</head>
+
+<body>
+    <div class="app">
+        <!-- TOP-BAR -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                        <a href="#" class="">
+                            <span class="mr-2 fa-solid fa-envelope"></span> <span class="d-none d-md-inline-block">Tana@gmail.com</span>
+                        </a>
+                        <a style="padding-left: 15px;" href="#" class="">
+                            <span class="mr-2  fa-solid fa-phone"></span>
+                            <span class="d-none d-md-inline-block ">+94392739634</span>
+                        </a>
+
+
+                        <div class="float-right">
+                            <a href="#" class="">
+                                <span class="mr-2 fa-brands fa-instagram"></span> <span class="d-none d-md-inline-block">Instagram</span>
+                            </a>
+                            <span class="mx-md-2 d-inline-block"></span>
+                            <a href="#" class="">
+                                <span class="mr-2 fa-brands fa-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: TOP-BAR -->
+        <!-- HEADER -->
+        <header id="header" class="navbar navbar-expand-lg navbar-light shadow">
+            <div class="container">
+                <a class="navbar-brandext-black font-weight-bold h1 text-dark" href="/Home/Index">TANA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul style="font-size: 18px;" id="main-menu" class="nav navbar-nav  mx-auto">
+                        <li class="nav-item active ">
+                            <a class="nav-link snip1582" href="index.html">Home</a>
+                        </li>
+                        <li id="idCategory" class=" nav-item position-relative">
+                            <a class="nav-link snip1582" href="shop.html">Category</a>
+                            <ul class="sub-menu1">
+                                <li><a href="#">Nike</a></li>
+                                <li><a href="#">Adidas</a></li>
+                                <li><a href="#">Biti's</a></li>
+                                <li><a href="#">Ananas</a></li>
+                                <li><a href="#">Converse</a></li>
+                                <li><a href="#">Supreme </a></li>
+                            </ul>
+                        </li>
+                        <li id="idShop" class=" nav-item position-relative">
+                            <a class="nav-link snip1582" href="shop.html">Shop</a>
+                            <ul class="sub-menu2">
+                                <li><a href="#">Nike</a></li>
+                                <li><a href="#">Adidas</a></li>
+                                <li><a href="#">Biti's</a></li>
+                                <li><a href="#">Ananas</a></li>
+                                <li><a href="#">Converse</a></li>
+                                <li><a href="#">Supreme </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link snip1582" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link snip1582" href="contact.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link snip1582" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div>
+                        <form action="" id="search-box">
+                            <button style="font-size: 18px" id="search-btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <input type="text" id="search-text" placeholder="Search..." required autocomplete="off">
+                        </form>
+                    </div>
+                    <div style="padding-left: 5px; margin-top: 14px">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END: HEADER -->
+        <div>
+            @RenderBody()
+        </div>
+        <!-- FOOTER -->
+        <footer class="bg-black text-white">
+            <div class="bg-light text-center text-lg-start">
+                <div class="text-center p-3" style="background-color: #212529; ">
+                    <section class="">
+                        <div class="container text-center text-md-start mt-5">
+                            <div class="row mt-3">
+                                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                    <h6 class="text-uppercase fw-bold">Về TANA</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                    <p class="text-justify">
+                                        Tại Tana, mỗi sản phẩm đều mang theo sự cá tính và sành điệu, đại diện cho
+                                        hình ảnh giới trẻ
+                                        hiện đại - biểu tượng cho sự dẫn đầu phong cách thời đại mới.
+                                    </p>
+                                </div>
+                                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
+                                    <h6 class="text-uppercase fw-bold">Sản Phẩm</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                    <p>
+                                        <a href="/products/top" class="text-white" style="text-decoration:none;">Top</a>
+                                    </p>
+                                    <p>
+                                        <a href="/products/bottom" class="text-white"
+                                           style="text-decoration:none;">Bottom</a>
+                                    </p>
+                                    <p>
+                                        <a href="/products/accessories" class="text-white"
+                                           style="text-decoration:none;">Accessories</a>
+                                    </p>
+                                    <p>
+                                        <a href="/Products" class="text-white" style="text-decoration:none;">All</a>
+                                    </p>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
+                                    <h6 class="text-uppercase fw-bold">Hỗ trợ</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                    <p>
+                                        <a href="#!" class="text-white " style="text-decoration:none;">Tài khoản</a>
+                                    </p>
+                                    <p>
+                                        <a href="#!" class="text-white" style="text-decoration:none;">
+                                            Chính sách bảo
+                                            hành
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="#!" class="text-white" style="text-decoration:none;">
+                                            Vận
+                                            chuyển
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="#!" class="text-white" style="text-decoration:none;">
+                                            Thanh toán
+                                            online
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-justify">
+                                    <h6 class="text-uppercase fw-bold">Liên hệ</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                    <p><i class="fa-solid fa-house"></i> Khu E, Đại học HUTECH</p>
+                                    <p><i class="fa-sharp fa-solid fa-envelope"></i> Tana@gmail.com</p>
+                                    <p><i class="fa-sharp fa-solid fa-phone"></i> 01 234 567 88</p>
+                                    <p><i class="fa-solid fa-clock"></i> Mon - Sun | 09:30 ~ 21:30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    © 2022 Copyright:
+                    <a class="text-white" href="#" style="text-decoration:none;">Tana</a>
+                </div>
+                <!-- Copyright -->
+            </div>
+        </footer>
+        <!-- END: FOOTER -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/Scripts/loginJS.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="@Url.Content("~/Content/faviconn.ico")" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="~/Content/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style" />
+    <title>@ViewBag.Titlee - Admin</title>
+</head>
+<body class="loading" data-layout="detached">
+
+    <!-- Topbar Start -->
+    <div class="navbar-custom topnav-navbar topnav-navbar-dark">
+        <div class="container-fluid">
+
+
+            <a href="/Admin/Admin/Index" class="topnav-logo">
+                <span class="topnav-logo-lg">
+                    <img src="~/Content/faviconn.ico" alt="" height="40">
+                </span>
+                <span class="topnav-logo-sm">
+                    <img src="~/Content/faviconn.ico" alt="" height="40">
+                </span>
+            </a>
+
+
+            <ul class="list-unstyled topbar-menu float-end mb-0">
+                <li class="dropdown notification-list">
+                    <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" id="topbar-userdrop" href="#" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="account-user-avatar">
+                            <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="user-image" class="rounded-circle">
+                        </span>
+                        <span>
+                            <span class="account-user-name">
+                                @Session["ViewNameAdmin"]
+                                @Session["ViewNameBoss"]
+                            </span>
+                            <span class="account-position">
+                                @Session["ChucVuAdmin"]
+                                @Session["ChucVuBoss"]
+                            </span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown" aria-labelledby="topbar-userdrop">
+                        <!-- item-->
+                        <div class=" dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome !</h6>
+                        </div>
+
+                        <!-- item-->
+                        <a href="/Admin/Admin/InfoAdmin" class="dropdown-item notify-item">
+                            <i class="mdi mdi-account-circle me-1"></i>
+                            <span>Thông tin cá nhân</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="mdi mdi-account-edit me-1"></i>
+                            <span>Cài đặt</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="mdi mdi-lifebuoy me-1"></i>
+                            <span>Hỗ trợ</span>
+                        </a>
+
+
+                        <!-- item-->
+                        <a href="Dangxuat" class="dropdown-item notify-item">
+                            <i class="mdi mdi-logout me-1"></i>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <a class="button-menu-mobile disable-btn">
+                <div class="lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <!-- end Topbar -->
+    <!-- Start Content-->
+    <div class="container-fluid">
+
+        <!-- Begin page -->
+        <div class="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="leftside-menu leftside-menu-detached">
+
+                <div class="leftbar-user">
+                    <a href="/Admin/Admin/InfoAdmin">
+                        <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <span class="leftbar-user-name">
+                            <p>@Session["ViewNameAdmin"]</p>
+                            <p>@Session["ViewNameBoss"]</p>
+                        </span>
+                    </a>
+                </div>
+
+                <!--- Sidemenu -->
+                <ul class="side-nav">
+
+                    <li class="side-nav-title side-nav-item">Navigation</li>
+
+                    <li class="side-nav-item">
+                        <a href="/Admin/Admin/Index" class="side-nav-link">
+                            <i class="uil-home-alt"></i>
+                            <span> Trang chủ </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="/Admin/Brand/Index" class="side-nav-link">
+                            <i class="uil-tag-alt"></i>
+                            <span> Quản lý nhãn hiệu </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="/Admin/QLSanPham/QLSanPham" class="side-nav-link">
+                            <i class="uil-cart"></i>
+                            <span> Quản lý sản phẩm </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <i class="uil-users-alt"></i>
+                            <span> Quản lý tài khoản </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarEcommerce">
+                            <ul class="side-nav-second-level">
+                                <li>
+                                    <a href="/Admin/QLTaiKhoan/QLTaiKhoanKH">Tài khoản khách hàng</a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/QLTaiKhoan/QLTaiKhoanAdmin">Tài khoản hệ thống</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="/Admin/QLSale/QLSale" class="side-nav-link">
+                            <i class="uil-dollar-sign-alt"></i>
+                            <span> Quản lý sale </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="/Admin/QLHoaDon/QLHoaDon" class="side-nav-link">
+                            <i class="uil-invoice"></i>
+                            <span> Quản lý hoá đơn </span>
+                        </a>
+                    </li>
+                </ul>
+
+
+                <!-- End Sidebar -->
+
+                <div class="clearfix"></div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title">@ViewBag.Title</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+
+            <!-- END Container -->
+            <!-- bundle -->
+            <script src="~/Content/assets/js/vendor.min.js"></script>
+            <script src="~/Content/assets/js/app.min.js"></script>
+
+            <!-- third party js -->
+            <script src="~/Content/assets/js/vendor/apexcharts.min.js"></script>
+            <script src="~/Content/assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+            <script src="~/Content/assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+            <!-- third party js ends -->
+            <!-- demo app -->
+            <script src="~/Content/assets/js/pages/demo.dashboard.js"></script>
+            <!-- end demo js-->
+            <style>
+                a {
+                    text-decoration: none !important;
+                }
+            </style>
+</body>
+</html>

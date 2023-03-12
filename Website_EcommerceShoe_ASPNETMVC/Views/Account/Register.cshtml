@@ -1,0 +1,62 @@
+﻿@model Website_EcommerceShoe_ASPNETMVC.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<main aria-labelledby="title">
+    <div class="login">
+        <div class="form-signup d-flex justify-content-center align-items-center">
+            <div class="form-value">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <form action="">
+                        <h2 class="text-center fs-2 text-white fw-bold">Sign Up</h2>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="inputbox">
+                            <i id="icon" class="fa-solid fa-envelope"></i>
+                            <input type="text" id="Email" name="Email" required autocomplete="off" />
+                            <label for="">Email @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })</label>
+                        </div>
+
+                        <div class="inputbox">
+                            <a id="show"><i class="fa-solid fa-eye-slash"></i></a>
+                            <input type="password" id="password" name="password" required autocomplete="off" />
+                            <label for="">Password @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</label>
+                        </div>
+                        <div class="inputbox">
+                            <a id="show1"><i class="fa-solid fa-eye-slash"></i></a>
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" required autocomplete="off" />
+                            <label for="">Confirm Password @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</label>
+                        </div>
+                        <button type="submit" class="btn-login">Sign Up</button>
+                        <div class="social-icon text-center">
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-google"></i></a>
+                            <a href="#"><i class="fa-brands fa-microsoft"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    document.getElementById('show').onclick = function () {
+        let password = document.getElementById('password');
+        password.type = password.type == 'password' ? 'text' : 'password';
+
+    }
+    document.getElementById('show1').onclick = function () {
+        let password = document.getElementById('ConfirmPassword');
+        password.type = password.type == 'password' ? 'text' : 'password';
+
+    }
+</script>

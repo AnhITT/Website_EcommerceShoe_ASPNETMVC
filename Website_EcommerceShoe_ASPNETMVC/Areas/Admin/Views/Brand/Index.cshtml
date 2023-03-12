@@ -1,0 +1,54 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<Website_EcommerceShoe_ASPNETMVC.Models.EF.Brand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<p>
+    <a class="fw-bolder" href="AddBrand">THÊM DANH MỤC <i class="fa-solid fa-plus-circle"></i></a>
+</p>
+<table class="table table-bordered text-center">
+    <tr>
+        <th>
+            Mã danh mục
+        </th>
+        <th>
+            Tên danh mục
+        </th>
+        <th>
+            Chỉnh sửa
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <span>
+                    @Html.ActionLink("Danh sách sản phẩm", "ListDanhMuc", new { id = item.idBrand }, new { @class = "btn btn-success" })
+                </span>
+                <span>
+                    @Html.ActionLink("Sửa danh mục", "EditDanhMuc", new { id = item.idBrand }, new { @class = "btn btn-dark" })
+                </span>
+                <span>
+                    @Html.ActionLink("Xoá danh mục", "DelDanhMuc", new { id = item.idBrand }, new { @class = "btn btn-danger" })
+                </span>
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="d-flex justify-content-center mt-4">
+    @Html.PagedListPager(Model, page => Url.Action("QLDanhMuc", new { page = page }), new PagedList.Mvc.PagedListRenderOptions { LiElementClasses = new string[] { "page-item btn btn-dark rounded mx-2" } })
+</div>
+
+
