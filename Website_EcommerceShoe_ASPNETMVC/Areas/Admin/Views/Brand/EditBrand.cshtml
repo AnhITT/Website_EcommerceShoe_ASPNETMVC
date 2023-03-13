@@ -1,0 +1,50 @@
+﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Brand
+@{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item h5"><a href="../QLDanhMuc"><i class="uil-tag-alt"></i> Quản lý danh mục</a></li>
+            <li class="breadcrumb-item h5">Sửa thông tin danh mục</li>
+        </ol>
+    </nav>
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="bg-image" <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                  <h2 class="text-uppercase text-center ">Sửa thông tin danh mục</h2>
+                  @using (Html.BeginForm("Edit", "Category", FormMethod.Post, new { }))
+                  {
+                      @Html.AntiForgeryToken()
+                      @Html.ValidationSummary(true)
+                      <!-- your steps content here -->
+                      <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                          <div class="form-group">
+                              <label for="">Mã thương hiệu</label>
+                              @Html.TextBoxFor(x => x.idBrand, new { @class = "form-control"})
+                              @Html.ValidationMessageFor(x => x.idBrand, null, new { @class = "text-danger" })
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Tên thương hiệu</label>
+                              @Html.TextBoxFor(x => x.nameBrand, new { @class = "form-control" })
+                              @Html.ValidationMessageFor(x => x.nameBrand, null, new { @class = "text-danger" })
+                          </div>
+                          <div class="form-group">
+                              <a href="/admin/category" class="btn btn-danger">Quay lại</a>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                      </div>
+
+                  }
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+

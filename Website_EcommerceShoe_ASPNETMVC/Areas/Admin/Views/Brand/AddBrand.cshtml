@@ -1,11 +1,14 @@
 ﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Brand
 
 @{
-    ViewBag.Title = "AddBrand";
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item h5"><a href="Index"><i class="uil-tag-alt"></i> Quản lý thương hiệu</a></li>
+            <li class="breadcrumb-item h5">Thêm thương hiệu</li>
+        </ol>
+    </nav>
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-
 <section class="bg-image"
       <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
@@ -13,29 +16,29 @@
             <div class="col-12 col-md-9 col-lg-7 col-xl-6">
               <div class="card" style="border-radius: 15px;">
                   <div class="card-body p-5">
-                      <h2 class="text-uppercase text-center ">Thêm danh mục</h2>
+                      <h2 class="text-uppercase text-center ">Thêm thương hiệu</h2>
                       @using (Html.BeginForm())
                       {
                           @Html.ValidationSummary(true)
                           <div>
-                              Nhập mã danh mục
+                              Nhập mã thương hiệu
                               <div>
-                                  @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
-                                  @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                                  @Html.TextBoxFor(model => model.idBrand, "", new { @class = "form-control" })
+                                  @Html.ValidationMessageFor(m => m.idBrand, "", new { @class = "text-danger" })
                               </div>
                           </div>
 
                           <div>
-                              Nhập tên danh mục
+                              Nhập tên thương hiệu
                               <div>
-                                  @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                                  @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                  @Html.TextBoxFor(model => model.nameBrand, "", new { @class = "form-control" })
+                                  @Html.ValidationMessageFor(m => m.nameBrand, "", new { @class = "text-danger" })
                               </div>
                           </div>
 
                           <div class="d-flex justify-content-center align-items-center">
-                              <a class="btn btn-dark" href="QLDanhMuc"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
-                              <input type="submit" value="Thêm danh mục" class="btn btn-success m-3" />
+                              <a class="btn btn-dark" href="Index"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
+                              <input type="submit" value="Thêm thương hiệu" class="btn btn-success m-3" />
                           </div>
                       }
 

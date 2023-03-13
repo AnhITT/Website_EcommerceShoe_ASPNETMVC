@@ -17,12 +17,12 @@
         <div class="container-fluid">
 
 
-            <a href="/Admin/Admin/Index" class="topnav-logo">
+            <a style="margin-left: 115px" href="/Admin/Admin/Index" class="topnav-logo">
                 <span class="topnav-logo-lg">
-                    <img src="~/Content/faviconn.ico" alt="" height="40">
+                    <img src="~/Content/faviconn.ico" alt="" height="50">
                 </span>
                 <span class="topnav-logo-sm">
-                    <img src="~/Content/faviconn.ico" alt="" height="40">
+                    <img src="~/Content/faviconn.ico" alt="" height="50">
                 </span>
             </a>
 
@@ -36,12 +36,8 @@
                         </span>
                         <span>
                             <span class="account-user-name">
-                                @Session["ViewNameAdmin"]
-                                @Session["ViewNameBoss"]
                             </span>
                             <span class="account-position">
-                                @Session["ChucVuAdmin"]
-                                @Session["ChucVuBoss"]
                             </span>
                         </span>
                     </a>
@@ -102,8 +98,6 @@
                     <a href="/Admin/Admin/InfoAdmin">
                         <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name">
-                            <p>@Session["ViewNameAdmin"]</p>
-                            <p>@Session["ViewNameBoss"]</p>
                         </span>
                     </a>
                 </div>
@@ -119,10 +113,17 @@
                             <span> Trang chủ </span>
                         </a>
                     </li>
+                    
                     <li class="side-nav-item">
                         <a href="/Admin/Brand/Index" class="side-nav-link">
+                            <i class="fa-regular fa-copyright"></i>
+                            <span> Quản lý thương hiệu </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="#" class="side-nav-link">
                             <i class="uil-tag-alt"></i>
-                            <span> Quản lý nhãn hiệu </span>
+                            <span> Quản lý danh mục </span>
                         </a>
                     </li>
                     <li class="side-nav-item">

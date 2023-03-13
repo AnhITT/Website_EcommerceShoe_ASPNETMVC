@@ -13,13 +13,15 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
     {
         // GET: Admin/Brand
         private readonly ApplicationDbContext _context;
-
-        public ActionResult Index(int? page)
+        public BrandController()
         {
-            int pageNumber = (page ?? 1);
-            int pageSize = 10;
+            _context = new ApplicationDbContext();
+        }
+        public ActionResult Index()
+        {
+            var items = _context.Brands;
             ViewBag.Titlee = "Quản lý nhãn hàng";
-            return View(_context.Brands.ToList().OrderBy(n => n.idBrand).ToPagedList(pageNumber, pageSize));
+            return View(items);
         }
 
         public ActionResult AddBrand()
@@ -28,7 +30,6 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult AddBrand(Brand brand)
         {
             if (ModelState.IsValid)
@@ -37,7 +38,25 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(brand);
+            return RedirectToAction("Index");
+        }
+        public ActionResult EditBrand(int id)
+        {
+            var item = _context.Categories.Find(id);
+            return View(item);
+        }
+        [HttpPost]
+        public ActionResult EditBrand(Brand model)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Brands.Attach(model);
+                _context.Entry(model).Property(x => x.idBrand).IsModified = true;
+                _context.Entry(model).Property(x => x.nameBrand).IsModified = true;
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
     }
 }
