@@ -11,6 +11,8 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         [Key]
         public int idImg { get; set; }
         public string urlImg { get; set; }
+        public int? productID { get; set; }
+        public virtual Product Product { get; set; }
 
     }
 }

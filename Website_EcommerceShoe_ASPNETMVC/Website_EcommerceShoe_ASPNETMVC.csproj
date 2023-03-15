@@ -183,12 +183,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303121701491_createdb.cs" />
-    <Compile Include="Migrations\202303121701491_createdb.designer.cs">
-      <DependentUpon>202303121701491_createdb.cs</DependentUpon>
+    <Compile Include="Migrations\202303152119332_createdb.cs" />
+    <Compile Include="Migrations\202303152119332_createdb.designer.cs">
+      <DependentUpon>202303152119332_createdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -507,17 +508,17 @@
     <Content Include="Content\assets\fonts\unicons.woff2" />
     <Content Include="Content\assets\js\app.min.js.map" />
     <Content Include="Content\assets\js\vendor.min.js.map" />
-    <Content Include="Content\Image\Product\nike1-1.webp" />
-    <Content Include="Content\Image\Product\nike1-2.webp" />
-    <Content Include="Content\Image\Product\nike1-3.webp" />
-    <Content Include="Content\Image\Product\nike1-4.webp" />
-    <Content Include="Content\Image\Product\nike1-5.webp" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\AddBrand.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\AddProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\EditBrand.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\EditCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -529,6 +530,66 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\icons\default\icons.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\license.txt" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\models\dom\model.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\emoticons\js\emojiimages.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\emoticons\js\emojiimages.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\content\default\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\content\document\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\content\tinymce-5-dark\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\content\tinymce-5\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.inline.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5\content.inline.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5\content.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5\skin.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.css" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\themes\silver\theme.min.js" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -561,14 +622,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="tinymce_6.3.2\tinymce\CHANGELOG.md" />
+    <Content Include="tinymce_6.3.2\tinymce\js\tinymce\langs\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Blog\" />
-    <Folder Include="Areas\Admin\Views\Category\" />
-    <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Content\Image\Background\" />
+    <Folder Include="Content\Image\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -598,8 +662,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202303121701491_createdb.resx">
-      <DependentUpon>202303121701491_createdb.cs</DependentUpon>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="tinymce_6.3.2\tinymce\js\tinymce\tinymce.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202303152119332_createdb.resx">
+      <DependentUpon>202303152119332_createdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

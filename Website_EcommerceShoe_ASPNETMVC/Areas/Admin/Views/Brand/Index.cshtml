@@ -7,7 +7,7 @@
 <section style="padding-top: 30px" class="content">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Danh sách thương hiệu</h3>
+            <h2 class="text-center">Danh sách thương hiệu</h2>
             <div class="card-tools">
                 <a href="/Admin/Brand/AddBrand" class="btn btn-success">Thêm mới</a>
             </div>
@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên danh mục</th>
+                        <th>Tên thương hiệu</th>
                         <th>Thứ tự</th>
                     </tr>
                 </thead>
@@ -42,15 +42,38 @@
                     else
                     {
                         <tr>
-                            <td colspan="4">Không có bản ghi nào!!!</td>
+                            <td colspan="4">Không có thương hiệu nào!!!</td>
+
                         </tr>
                     }
                 </tbody>
             </table>
 
         </div>
-        <div class="card-footer">
-
-        </div>
     </div>
 </section>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa thương hiệu này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/Admin/Brand/Delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        },
+                        error: function (err) {
+                            alert('Có sản phẩm thuộc nhãn hiệu này, không thể xoá!', err.statusText);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

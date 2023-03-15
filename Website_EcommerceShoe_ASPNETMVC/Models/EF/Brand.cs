@@ -11,5 +11,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         [Key]
         public int idBrand { get; set; }
         public string nameBrand { get; set; }
+        
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,20 +13,21 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
     public class BrandController : Controller
     {
         // GET: Admin/Brand
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext data;
         public BrandController()
         {
-            _context = new ApplicationDbContext();
+            data = new ApplicationDbContext();
         }
         public ActionResult Index()
         {
-            var items = _context.Brands;
+            var items = data.Brands;
             ViewBag.Titlee = "Quản lý nhãn hàng";
             return View(items);
         }
 
         public ActionResult AddBrand()
         {
+            ViewBag.Titlee = "Thêm nhãn hàng";
             return View();
         }
 
@@ -34,29 +36,39 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Brands.Add(brand);
-                _context.SaveChanges();
+                data.Brands.Add(brand);
+                data.SaveChanges();
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
         public ActionResult EditBrand(int id)
         {
-            var item = _context.Categories.Find(id);
-            return View(item);
+            Brand brand = data.Brands.Find(id);
+            return View(brand);
         }
         [HttpPost]
-        public ActionResult EditBrand(Brand model)
+        public ActionResult EditBrand(Brand brand)
         {
             if (ModelState.IsValid)
             {
-                _context.Brands.Attach(model);
-                _context.Entry(model).Property(x => x.idBrand).IsModified = true;
-                _context.Entry(model).Property(x => x.nameBrand).IsModified = true;
-                _context.SaveChanges();
+                data.Entry(brand).State = EntityState.Modified;
+                data.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(model);
+            return View(brand);
+        }
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var item = data.Brands.Find(id);
+            if (item != null)
+            {
+                data.Brands.Remove(item);
+                data.SaveChanges();
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
         }
     }
 }

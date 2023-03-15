@@ -11,6 +11,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         [Key]
         public int idCar { get; set; }
         public string nameCar { get; set; }
-        public string descriptionCar { get; set; }
+     
+
     }
 }

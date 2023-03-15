@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="~/Content/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style" />
+
+    <script src="~/tinymce_6.3.2/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
     <title>@ViewBag.Titlee - Admin</title>
 </head>
 <body class="loading" data-layout="detached">
@@ -113,7 +116,7 @@
                             <span> Trang chủ </span>
                         </a>
                     </li>
-                    
+
                     <li class="side-nav-item">
                         <a href="/Admin/Brand/Index" class="side-nav-link">
                             <i class="fa-regular fa-copyright"></i>
@@ -121,13 +124,13 @@
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="#" class="side-nav-link">
+                        <a href="/Admin/Category/Index" class="side-nav-link">
                             <i class="uil-tag-alt"></i>
                             <span> Quản lý danh mục </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="/Admin/QLSanPham/QLSanPham" class="side-nav-link">
+                        <a href="/Admin/Product/Index" class="side-nav-link">
                             <i class="uil-cart"></i>
                             <span> Quản lý sản phẩm </span>
                         </a>
@@ -207,5 +210,8 @@
                     text-decoration: none !important;
                 }
             </style>
+            @RenderSection("scripts", required: false)
+
 </body>
+
 </html>

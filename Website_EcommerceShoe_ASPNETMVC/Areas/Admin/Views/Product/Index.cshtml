@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.Product>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section style="padding-top: 30px" class="content">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Danh sách sản phẩm</h2>
+            <div class="card-tools">
+                <a href="/Admin/Product/AddProduct" class="btn btn-success">Thêm sản phẩm</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Danh mục</th>
+                        <th>Thương hiệu</th>
+                        <th>Sản phẩm</th>
+                        <th>Ảnh </th>
+                        <th>Giá bán</th>
+                        <th>Tình trạng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <tr id="trow_@item.idProduct">
+                                <td>@item.Category.nameCar</td>
+                                <td>@item.Brand.nameBrand</td>
+                                <td>@item.nameProduct</td>
+                                <td>
+                                    <img style="width:100px; height: 100px" src="~/Content/Image/Product/@item.UrlImgCover" />
+                                </td>
+                                <td>@String.Format("{0:0,0}", @item.priceProduct) VNĐ</td>
+                                <td>
+                                    @if (item.statusProduct == true)
+                                    {
+                                        <span class="badge bg-success">Đang bán</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Chưa bán</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Admin/Product/EditProduct/@item.idProduct" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="#" data-id="@item.idProduct" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4">Không có sản phẩm nào!!!</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        
+    </div>
+</section>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa sản phẩm này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/Admin/Product/Delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+}

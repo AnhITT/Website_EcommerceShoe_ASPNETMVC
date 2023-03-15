@@ -9,7 +9,7 @@
     </nav>
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-<section class="bg-image"
+<section class="bg-image">
       <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center">
@@ -20,13 +20,7 @@
                       @using (Html.BeginForm())
                       {
                           @Html.ValidationSummary(true)
-                          <div>
-                              Nhập mã thương hiệu
-                              <div>
-                                  @Html.TextBoxFor(model => model.idBrand, "", new { @class = "form-control" })
-                                  @Html.ValidationMessageFor(m => m.idBrand, "", new { @class = "text-danger" })
-                              </div>
-                          </div>
+                          
 
                           <div>
                               Nhập tên thương hiệu

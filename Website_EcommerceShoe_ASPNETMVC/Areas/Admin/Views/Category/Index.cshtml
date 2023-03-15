@@ -1,0 +1,94 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<Website_EcommerceShoe_ASPNETMVC.Models.EF.Category>
+
+@{
+
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section style="padding-top: 30px" class="content">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Danh sách danh mục</h2>
+            <div class="card-tools">
+                <a href="/Admin/Category/AddCategory" class="btn btn-success">Thêm mới</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên danh mục</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        foreach (var item in Model)
+                        {
+
+                            <tr id="trow_@item.idCar">
+                                <td>@i</td>
+                                <td>@item.nameCar</td>
+                                <td>
+                                    <a href="/Admin/Category/EditCategory/@item.idCar" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="#" data-id="@item.idCar" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4">Không có danh mục nào!!!</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</section>
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions { LiElementClasses = new string[] { "page-item btn btn-sm btn-primary mx-1" } })
+</div>
+
+<style>
+    .page-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa danh mục này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/Admin/Category/Delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        },
+                        error: function (err) {
+                            alert('Có sản phẩm thuộc danh mục này, không thể xoá!', err.statusText);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
