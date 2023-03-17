@@ -8,27 +8,35 @@
 <div class="container-fluid py-5">
     <div class="row px-xl-5">
         <!-- Product image-->
-        <div class="col-lg-5 pb-5">
-            <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner border">
-                    <div class="carousel-item active">
-                        <img class="w-100 h-100" src="~/Content/Image/Product/@Model.UrlImgCover" alt="Image">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="w-100 h-100" src="~/Content/Image/Product/@Model.UrlImgCover_After" alt="Image">
+        <div class="col-lg-6 pb-5">
+            <div class="about" id="About">
+                <div class="about_main">
+                    <div class="about_image">
+                        <div class="about_small_image">
+                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover" onclick="functio(this)">
+                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover_After" onclick="functio(this)">
+                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover" onclick="functio(this)">
+                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover_After" onclick="functio(this)">
+                        </div>
+                        <div class="image_contaner">
+                            <img class="w-100 h-100" src="~/Content/Image/Product/@Model.UrlImgCover" id="imagebox">
+                        </div>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-                    <i class="fa fa-2x fa-angle-left text-dark"></i>
-                </a>
-                <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-                    <i class="fa fa-2x fa-angle-right text-dark"></i>
-                </a>
+
+
+                <script>
+                    function functio(small) {
+                        var full = document.getElementById("imagebox")
+                        full.src = small.src
+                    }
+                </script>
+
             </div>
         </div>
 
         <!-- Product name-->
-        <div class="col-lg-7 pb-5">
+        <div class="col-lg-6 pb-5">
             <h3 class="font-weight-semi-bold">@Model.nameProduct</h3>
 
             <h3 class="font-weight-semi-bold mb-4">$@Model.priceProduct</h3>
@@ -54,7 +62,7 @@
                             <i class="fa fa-minus"></i>
                         </button>
                     </div>
-                    <input type="text" class="form-control bg-secondary text-center" value="1">
+                    <input type="text" class="form-control bg-light text-center" value="1">
                     <div class="input-group-btn">
                         <button class="btn btn-dark btn-plus">
                             <i class="fa fa-plus"></i>
@@ -313,3 +321,114 @@
         </div>
     </div>
 </div>
+
+
+<style>
+    section .main .main_content .main_image img {
+        width: 650px;
+        position: relative;
+        left: 20px;
+        top: 0px;
+    }
+
+
+    .products .box .card .image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .products .box .card .image img {
+            width: 150px;
+            margin: 15px 0;
+            transition: 0.3s;
+        }
+
+    .products .box .card:hover .image img {
+        transform: scale(1.1);
+    }
+
+    .products .box .card .small_card i {
+        width: 45px;
+        height: 45px;
+        border-radius: 5px;
+        font-size: 18px;
+        margin: 2px 0;
+        line-height: 40px;
+        border: 2px solid #999999;
+        transition: 0.2s;
+    }
+
+        .products .box .card .small_card i:hover {
+            color: #c72092;
+        }
+
+    .products .box .card .products_text h2 {
+        font-size: 30px;
+        margin-top: 15px;
+    }
+
+    .products .box .card .products_text p {
+        color: #91919191;
+        line-height: 21px;
+        margin: 8px 0;
+    }
+
+    .products .box .card .products_text h3 {
+        margin: 7px 0;
+    }
+
+    .products .box .card .products_text .products_star {
+        color: orange;
+        margin-bottom: 19px;
+        cursor: pointer;
+    }
+
+    .products .box .card .products_text .btn {
+        text-decoration: none;
+        padding: 10px 20px;
+        background: linear-gradient(to right, #c72092, #6c14d0);
+        color: white;
+    }
+
+    .about .about_main .about_image {
+        display: flex;
+    }
+
+        .about .about_main .about_image .about_small_image {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            top: 15px;
+        }
+
+            .about .about_main .about_image .about_small_image img {
+                height: 92px;
+                margin: 5px 0;
+                cursor: pointer;
+                background: linear-gradient(to right, #212121, #fffff);
+                display: block;
+                border-radius: 6px;
+                padding: 5px 5px;
+                box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+                opacity: 0.8;
+                transition: 0.3s;
+            }
+
+                .about .about_main .about_image .about_small_image img:hover {
+                    opacity: 1;
+                }
+
+    .about .about_main .image_contaner {
+        padding: 10px;
+        display: flex;
+    }
+
+        .about .about_main .image_contaner img {
+            border: 1px solid #212121;
+            border-radius: 15px;
+            height: 430px;
+            padding: 30px;
+            box-shadow: 0 0 1px #212121;
+        }
+</style>
