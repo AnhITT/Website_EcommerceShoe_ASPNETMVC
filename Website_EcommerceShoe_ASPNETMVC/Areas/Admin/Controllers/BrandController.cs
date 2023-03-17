@@ -18,13 +18,15 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         {
             data = new ApplicationDbContext();
         }
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var items = data.Brands;
+            if (page == null) page = 1;
+            int pageSize = 10;
+            int pageNum = page ?? 1;
             ViewBag.Titlee = "Quản lý nhãn hàng";
-            return View(items);
+            return View(data.Brands.ToList().ToPagedList(pageNum, pageSize));
         }
-
+        
         public ActionResult AddBrand()
         {
             ViewBag.Titlee = "Thêm nhãn hàng";

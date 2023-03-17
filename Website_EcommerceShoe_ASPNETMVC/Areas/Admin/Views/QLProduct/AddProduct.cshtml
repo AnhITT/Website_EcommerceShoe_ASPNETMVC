@@ -17,7 +17,7 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center ">Thêm sản phẩm</h2>
-                            @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("AddProduct", "QLProduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 @Html.ValidationSummary(true)
                                 <div>
@@ -72,7 +72,7 @@
                                 </div>
 
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <a class="btn btn-dark" href="Index"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
+                                    <a class="btn btn-dark" href="QLProduct"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
                                     <input type="submit" value="Thêm sản phẩm" class="btn btn-success m-3" />
                                 </div>
                             }

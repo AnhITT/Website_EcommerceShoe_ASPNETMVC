@@ -22,7 +22,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         public ActionResult Index(int? page)
         {
             if (page == null) page = 1;
-            int pageSize = 3;
+            int pageSize = 10;
             int pageNum = page ?? 1;
             ViewBag.Titlee = "Quản lý danh mục";
             return View(data.Categories.ToList().ToPagedList(pageNum, pageSize));

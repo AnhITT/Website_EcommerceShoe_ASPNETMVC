@@ -6,27 +6,29 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using Website_EcommerceShoe_ASPNETMVC.Models;
 using Website_EcommerceShoe_ASPNETMVC.Models.EF;
 
 namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
 {
-    public class ProductController : Controller
+    public class QLProductController : Controller
     {
         // GET: Admin/Product
         private readonly ApplicationDbContext data;
-        private ICollection<Category> idCar;
 
-        public ProductController()
+        public QLProductController()
         {
             data = new ApplicationDbContext();
         }
-        public ActionResult Index()
+        public ActionResult QLProduct(int? page)
         {
             ViewBag.Titlee = "Quản lý sản phẩm";
-
-            return View(data.Products.ToList());
+            if (page == null) page = 1;
+            int pageSize = 10;
+            int pageNum = page ?? 1;
+            return View(data.Products.ToList().ToPagedList(pageNum, pageSize));
         }
         
         public ActionResult AddProduct()
@@ -61,7 +63,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
                 sp.UrlImgCover_After = fileName1;
                 data.Products.Add(sp);
                 data.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("QLProduct");
             }
             else
             {
@@ -91,5 +93,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             }
             return Json(new { success = false });
         }
+
+        
     }
 }

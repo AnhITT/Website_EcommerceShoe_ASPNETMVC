@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.Product>
+﻿
+@using PagedList.Mvc;
+@model PagedList.PagedList<Website_EcommerceShoe_ASPNETMVC.Models.EF.Product>
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -9,7 +11,7 @@
         <div class="card-header">
             <h2 class="text-center">Danh sách sản phẩm</h2>
             <div class="card-tools">
-                <a href="/Admin/Product/AddProduct" class="btn btn-success">Thêm sản phẩm</a>
+                <a href="/Admin/QLProduct/AddProduct" class="btn btn-success">Thêm sản phẩm</a>
             </div>
         </div>
         <div class="card-body">
@@ -38,7 +40,7 @@
                                 <td>
                                     <img style="width:100px; height: 100px" src="~/Content/Image/Product/@item.UrlImgCover" />
                                 </td>
-                                <td>@String.Format("{0:0,0}", @item.priceProduct) VNĐ</td>
+                                <td>$@item.priceProduct</td>
                                 <td>
                                     @if (item.statusProduct == true)
                                     {
@@ -50,7 +52,8 @@
                                     }
                                 </td>
                                 <td>
-                                    <a href="/Admin/Product/EditProduct/@item.idProduct" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="/Admin/ImageProduct/Index/@item.idProduct" class="btn btn-sm btn-success">Thêm ảnh</a>
+                                    <a href="/Admin/QLProduct/EditProduct/@item.idProduct" class="btn btn-sm btn-primary">Sửa</a>
                                     <a href="#" data-id="@item.idProduct" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                 </td>
                             </tr>
@@ -66,10 +69,20 @@
             </table>
 
         </div>
-        
+
     </div>
 </section>
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("QLProduct", new { page = page }), new PagedListRenderOptions { LiElementClasses = new string[] { "page-item btn btn-sm btn-primary mx-1" } })
+</div>
 
+<style>
+    .page-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
 
 @section scripts{
     <script>
@@ -79,7 +92,7 @@
                 var conf = confirm('Bạn có muốn xóa sản phẩm này không?');
                 if (conf === true) {
                     $.ajax({
-                        url: '/Admin/Product/Delete',
+                        url: '/Admin/QLProduct/Delete',
                         type: 'POST',
                         data: { id: id },
                         success: function (rs) {

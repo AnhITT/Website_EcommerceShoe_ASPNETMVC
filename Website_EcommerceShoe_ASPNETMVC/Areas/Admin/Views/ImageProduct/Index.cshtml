@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.ImagesProduct>
+
+@{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item h5"><a href="/Admin/Product/Index"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item h5">Thêm ảnh sản phẩm</li>
+        </ol>
+    </nav>
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Ảnh sản phẩm</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-danger" title="Collapse">
+                    Xóa hết
+                </button>
+
+                <input type="button" value="Tải ảnh" class="btn btn-success" onclick="BrowseServer('txtImage');" />
+            </div>
+        </div>
+        <div class="card-body">
+            <ul class="glImage">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <li id="trow_@item.idImg">
+                            <img src="@item.urlImg" width="200" />
+                            <div class="box-btn">
+                                <a href="#" data-id="@item.idImg" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
+
+                                <a href="#" data-id="@item.idImg" class="btn btn-sm btn-success btnDefault"><i class="fa fa-check"></i></a>
+
+                                <a href="#" data-id="@item.idImg" class="btn btn-sm btn-warning btnDefault">X</a>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+
+<style>
+    .glImage {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+        .glImage li {
+            /*flex-direction:*/
+            display: inline-block;
+            position: relative;
+        }
+
+    .box-btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+</style>

@@ -179,7 +179,8 @@
     <Compile Include="Areas\Admin\Controllers\BlogController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ImageProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLProductController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -451,6 +452,10 @@
     <Content Include="Content\Image\Icons\icons8-google-48.png" />
     <Content Include="Content\Image\Icons\icons8-microsoft-people-48.png" />
     <Content Include="Content\Image\Icons\icons8-twitter-48.png" />
+    <Content Include="Content\Image\Screenshot 2023-03-16 215810.png" />
+    <Content Include="Content\Image\Screenshot 2023-03-16 215820.png" />
+    <Content Include="Content\Image\Screenshot 2023-03-16 215830.png" />
+    <Content Include="Content\Image\Screenshot 2023-03-17 094529.png" />
     <Content Include="Content\Image\slider-cam1.jpg" />
     <Content Include="Content\Image\slider-cam2.jpg" />
     <Content Include="Content\Image\slider-den1.jpg" />
@@ -514,11 +519,12 @@
     <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\AddBrand.cshtml" />
     <Content Include="Areas\Admin\Views\Category\AddCategory.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\AddProduct.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\EditBrand.cshtml" />
     <Content Include="Areas\Admin\Views\Category\EditCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ImageProduct\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QLProduct\QLProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\QLProduct\AddProduct.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -622,10 +628,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="tinymce_6.3.2\tinymce\CHANGELOG.md" />
     <Content Include="tinymce_6.3.2\tinymce\js\tinymce\langs\README.md" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

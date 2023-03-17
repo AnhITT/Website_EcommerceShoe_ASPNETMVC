@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.Brand>
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<Website_EcommerceShoe_ASPNETMVC.Models.EF.Brand>
+
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
@@ -52,6 +54,17 @@
         </div>
     </div>
 </section>
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions { LiElementClasses = new string[] { "page-item btn btn-sm btn-primary mx-1" } })
+</div>
+
+<style>
+    .page-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
 @section scripts{
     <script>
         $(document).ready(function () {
