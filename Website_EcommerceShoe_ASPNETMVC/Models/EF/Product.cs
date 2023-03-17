@@ -11,7 +11,6 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         [Key]
         public int idProduct { get; set; }
         public string nameProduct { get; set; }
-        public DateTime dateUpProduct { get; set; }
         public string descriptionProduct { get; set; }
         public string UrlImgCover { get; set; }
         public string UrlImgCover_After { get; set; }

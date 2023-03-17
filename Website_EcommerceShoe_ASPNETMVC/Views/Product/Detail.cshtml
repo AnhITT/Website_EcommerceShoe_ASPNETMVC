@@ -32,7 +32,7 @@
             <h3 class="font-weight-semi-bold">@Model.nameProduct</h3>
 
             <h3 class="font-weight-semi-bold mb-4">$@Model.priceProduct</h3>
-            <p class="mb-4">@Model.descriptionProduct</p>
+            <p class="mb-4">@Html.DisplayFor(model => model.descriptionProduct)</p>
             <div class="d-flex mb-3">
                 <div class="btn-group">
                     <button class="btn btn-dark btn-sm" type="button">
@@ -301,3 +301,15 @@
     </div>
 </div>
 <!-- Shop Detail End -->
+<div class="container-fluid py-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">You May Also Like</span></h2>
+    </div>
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="owl-carousel related-carousel">
+                @Html.Partial("ProductCategory")
+            </div>
+        </div>
+    </div>
+</div>

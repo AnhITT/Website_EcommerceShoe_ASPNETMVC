@@ -192,6 +192,10 @@
     <Compile Include="Migrations\202303152119332_createdb.designer.cs">
       <DependentUpon>202303152119332_createdb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303170844308_ups.cs" />
+    <Compile Include="Migrations\202303170844308_ups.designer.cs">
+      <DependentUpon>202303170844308_ups.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -462,6 +466,16 @@
     <Content Include="Content\Image\slider-den2.jpg" />
     <Content Include="Content\Image\slider-trang1.png" />
     <Content Include="Content\Image\slider-trang2.jpg" />
+    <Content Include="Content\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\owlcarousel\owl.carousel.js" />
+    <Content Include="Content\owlcarousel\owl.carousel.min.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Global.asax" />
@@ -525,6 +539,7 @@
     <Content Include="Areas\Admin\Views\ImageProduct\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\QLProduct.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\AddProduct.cshtml" />
+    <Content Include="Content\owlcarousel\LICENSE" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -535,6 +550,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="tinymce_6.3.2\tinymce\js\tinymce\icons\default\icons.min.js" />
     <Content Include="tinymce_6.3.2\tinymce\js\tinymce\license.txt" />
@@ -633,6 +649,18 @@
     <Content Include="tinymce_6.3.2\tinymce\js\tinymce\langs\README.md" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Shared\ProductCategory.cshtml" />
+    <Content Include="Views\Product\Men.cshtml" />
+    <Content Include="Views\Product\Women.cshtml" />
+    <Content Include="Views\Product\Kids.cshtml" />
+    <Content Include="Views\Product\Sport.cshtml" />
+    <Content Include="Views\Product\Unisex.cshtml" />
+    <Content Include="Views\Product\Nike.cshtml" />
+    <Content Include="Views\Product\Adidas.cshtml" />
+    <Content Include="Views\Product\Bitis.cshtml" />
+    <Content Include="Views\Product\Vans.cshtml" />
+    <Content Include="Views\Product\Converse.cshtml" />
+    <Content Include="Views\Product\Jodan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -677,6 +705,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202303152119332_createdb.resx">
       <DependentUpon>202303152119332_createdb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303170844308_ups.resx">
+      <DependentUpon>202303170844308_ups.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

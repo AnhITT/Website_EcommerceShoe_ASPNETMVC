@@ -44,7 +44,6 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         {
             ViewBag.idCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar");
             ViewBag.idBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand");
-            sp.dateUpProduct = DateTime.Now;
             if(fileupload != null && fileupload.ContentLength > 0 && fileupload1 != null && fileupload1.ContentLength > 0)
             {
                 //lấy tên file được tải lên từ form upload và lưu vào biến fileName.
