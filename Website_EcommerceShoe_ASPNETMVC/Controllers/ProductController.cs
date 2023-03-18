@@ -25,6 +25,16 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             IList<Product> item = data.Products.Where(n => n.idCar == idDanhMuc).ToList();
             return item;
         }
+        private IList<ImagesProduct> GetProductImage(int idProduct)
+        {
+            IList<ImagesProduct> item = data.ImagesProducts.Where(n => n.productID == idProduct).ToList();
+            return item;
+        }
+        private IList<Sizes> GetProductSize(int idProduct)
+        {
+            IList<Sizes> item = data.Sizes.Where(n => n.productID == idProduct).ToList();
+            return item;
+        }
         public ActionResult Index(int? page)
         {
             if (page == null) page = 1;
@@ -37,7 +47,12 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
         {
             Product item = data.Products.Find(id);
             IList<Product> itemsLQ = GetProductCartegory((int)item.idCar);
+            IList<ImagesProduct> itemsIMG = GetProductImage(id);
+            IList<Sizes> itemsSize = GetProductSize(id);
             ViewBag.ProductCartegory = itemsLQ;
+            ViewBag.ImagesProduct = itemsIMG;
+            ViewBag.SizeProduct = itemsSize;
+
             return View(item);
         }
         public ActionResult Men(int? page)

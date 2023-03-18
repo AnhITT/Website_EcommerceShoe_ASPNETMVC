@@ -12,5 +12,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         public int idSize { get; set; }
         public string nameSize { get; set; }
         public int quantitySize { get; set; }
+        public int? productID { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

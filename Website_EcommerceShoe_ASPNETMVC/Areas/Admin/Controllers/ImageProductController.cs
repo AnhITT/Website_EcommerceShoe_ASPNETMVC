@@ -18,35 +18,32 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         {
             data = new ApplicationDbContext();
         }
-        public ActionResult Index(int id)
+        public ActionResult Index(int id, HttpPostedFileBase file)
         {
             ViewBag.Titlee = "Hình ảnh sản phẩm";
             var items = data.ImagesProducts.Where(x => x.productID == id).ToList();
-            return View(items);
-        }
-        public ActionResult AddImage(int id, HttpPostedFileBase fileupload, ImagesProduct image)
-        {
-            var item = data.Products.Find(id);
-
-            if (item != null)
+            var sp = data.Products.Find(id);
+            if (file != null && file.ContentLength > 0)
             {
-                var fileName = Path.GetFileName(fileupload.FileName);
+                var img = new ImagesProduct();
+                //lấy tên file được tải lên từ form upload và lưu vào biến fileName.
+                var fileName = Path.GetFileName(file.FileName);
 
                 //Chứa đường dẫn
                 var path = Path.Combine(Server.MapPath("~/Content/Image/Product/"), fileName);
 
                 //Lưu file
-                fileupload.SaveAs(path);
-
-                image.urlImg = fileName;
-                image.productID = id;
-                data.ImagesProducts.Add(image);
+                file.SaveAs(path);
+                img.urlImg = fileName;
+                img.productID = id;
+                data.ImagesProducts.Add(img);
                 data.SaveChanges();
-                return Json(new { success = true });
+                return RedirectToAction("Index");
             }
             else
             {
-                return Json(new { success = false });
+                ViewBag.Thongbao = "Vui lòng chọn ảnh";
+                return View();
             }
         }
     }

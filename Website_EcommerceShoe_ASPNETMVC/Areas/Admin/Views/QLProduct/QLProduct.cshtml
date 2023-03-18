@@ -37,9 +37,12 @@
                                 <td>@item.Category.nameCar</td>
                                 <td>@item.Brand.nameBrand</td>
                                 <td>@item.nameProduct</td>
-                                <td>
-                                    <img style="width:100px; height: 100px" src="~/Content/Image/Product/@item.UrlImgCover" />
-                                </td>
+
+                                    
+                                    <td>
+                                         <img style="width:100px; height: 100px" src="~/Content/Image/Product/@item.UrlImgCover" />
+                                    </td>  
+                                    
                                 <td>$@item.priceProduct</td>
                                 <td>
                                     @if (item.statusProduct == true)
@@ -53,7 +56,7 @@
                                 </td>
                                 <td>
                                     <a href="/Admin/ImageProduct/Index/@item.idProduct" class="btn btn-sm btn-success">Thêm ảnh</a>
-                                    <a href="/Admin/QLProduct/EditProduct/@item.idProduct" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="/Admin/QLProduct/AddSize/@item.idProduct" class="btn btn-sm btn-primary">Thêm size</a>
                                     <a href="#" data-id="@item.idProduct" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                                 </td>
                             </tr>

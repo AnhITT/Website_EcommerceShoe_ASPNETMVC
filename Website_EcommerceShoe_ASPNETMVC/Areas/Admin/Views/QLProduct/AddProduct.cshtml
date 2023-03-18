@@ -2,7 +2,7 @@
 @{
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item h5"><a href="Index"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item h5"><a href="QLProduct"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
             <li class="breadcrumb-item h5">Thêm sản phẩm</li>
         </ol>
     </nav>
@@ -51,12 +51,6 @@
                                 </div>
 
                                 <div class="mt-2">
-                                    Hình ảnh sau<br />
-                                    <input type="file" name="fileupload1" /> <br />
-                                    @ViewBag.Thongbao
-                                </div>
-
-                                <div class="mt-2">
                                     Giá sản phẩm
                                     <div>
                                         @Html.EditorFor(model => model.priceProduct, new { htmlAttributes = new { @class = "form-control" } })
@@ -84,4 +78,3 @@
         </div>
     </div>
 </section>
-

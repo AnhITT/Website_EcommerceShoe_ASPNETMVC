@@ -3,7 +3,7 @@
 @{
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item h5"><a href="/Admin/Product/Index"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item h5"><a href="/Admin/QLProduct/QLProduct"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
             <li class="breadcrumb-item h5">Thêm ảnh sản phẩm</li>
         </ol>
     </nav>
@@ -17,14 +17,25 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Ảnh sản phẩm</h3>
+            @using (Html.BeginForm("Index", "ImageProduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
 
-            <div class="card-tools">
-                <button type="button" class="btn btn-danger" title="Collapse">
-                    Xóa hết
-                </button>
-
-                <input type="button" value="Tải ảnh" class="btn btn-success" onclick="BrowseServer('txtImage');" />
-            </div>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-danger" title="Collapse">
+                        Xóa hết
+                    </button>
+                    <div class="mt-2">
+                        Tải ảnh
+                        <input type="file" name="file" /> <br />
+                        @ViewBag.Thongbao
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <a class="btn btn-dark" href="QLProduct"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
+                    <input type="submit" value="Thêm ảnh" class="btn btn-success m-3" />
+                </div>
+            }
         </div>
         <div class="card-body">
             <ul class="glImage">

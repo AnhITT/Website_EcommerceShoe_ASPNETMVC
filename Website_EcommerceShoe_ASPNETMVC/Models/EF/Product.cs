@@ -13,7 +13,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         public string nameProduct { get; set; }
         public string descriptionProduct { get; set; }
         public string UrlImgCover { get; set; }
-        public string UrlImgCover_After { get; set; }
+
         public double priceProduct { get; set; }
         public bool statusProduct { get; set; }
         public virtual ICollection<ImagesProduct> IdImg { get; set; }
@@ -24,7 +24,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         public int? idBrand { get; set; }
 
         public virtual Brand Brand { get; set; }
-
+        public virtual ImagesProduct ImagesProduct { get; set; }
 
     }
 }

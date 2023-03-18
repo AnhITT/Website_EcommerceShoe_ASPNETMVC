@@ -1,0 +1,14 @@
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models.EF
+@{
+    List<ImagesProduct> relateProduct = ViewBag.ImagesProduct;
+}
+
+
+                    @if (relateProduct != null)
+                    {
+                        foreach (ImagesProduct item in relateProduct)
+                        {
+                            <img class="img-thumbnail" src="~/Content/Image/Product/@item.urlImg" onclick="functio(this)">
+                        }
+                    }
+               

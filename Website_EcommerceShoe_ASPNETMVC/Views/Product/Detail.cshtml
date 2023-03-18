@@ -13,10 +13,7 @@
                 <div class="about_main">
                     <div class="about_image">
                         <div class="about_small_image">
-                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover" onclick="functio(this)">
-                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover_After" onclick="functio(this)">
-                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover" onclick="functio(this)">
-                            <img class="img-thumbnail" src="~/Content/Image/Product/@Model.UrlImgCover_After" onclick="functio(this)">
+                            @Html.Partial("ImagesProduct")
                         </div>
                         <div class="image_contaner">
                             <img class="w-100 h-100" src="~/Content/Image/Product/@Model.UrlImgCover" id="imagebox">
@@ -26,15 +23,14 @@
 
 
                 <script>
-                    function functio(small) {
-                        var full = document.getElementById("imagebox")
-                        full.src = small.src
-                    }
+            function functio(small) {
+                var full = document.getElementById("imagebox")
+                full.src = small.src
+            }
                 </script>
 
             </div>
         </div>
-
         <!-- Product name-->
         <div class="col-lg-6 pb-5">
             <h3 class="font-weight-semi-bold">@Model.nameProduct</h3>
@@ -42,19 +38,9 @@
             <h3 class="font-weight-semi-bold mb-4">$@Model.priceProduct</h3>
             <p class="mb-4">@Html.DisplayFor(model => model.descriptionProduct)</p>
             <div class="d-flex mb-3">
-                <div class="btn-group">
-                    <button class="btn btn-dark btn-sm" type="button">
-                        Size
-                    </button>
-                    <button type="button" class="btn btn-sm btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        ...
-                    </div>
-                </div>
+                @Html.Partial("SizeProduct")
             </div>
-            
+
             <div class="d-flex align-items-center mb-4 pt-2">
                 <div class="input-group quantity mr-3" style="width: 130px;">
                     <div class="input-group-btn">

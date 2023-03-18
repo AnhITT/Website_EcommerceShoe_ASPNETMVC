@@ -196,6 +196,30 @@
     <Compile Include="Migrations\202303170844308_ups.designer.cs">
       <DependentUpon>202303170844308_ups.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303181939018_c.cs" />
+    <Compile Include="Migrations\202303181939018_c.designer.cs">
+      <DependentUpon>202303181939018_c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303181956365_cx.cs" />
+    <Compile Include="Migrations\202303181956365_cx.designer.cs">
+      <DependentUpon>202303181956365_cx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303182019491_sssd.cs" />
+    <Compile Include="Migrations\202303182019491_sssd.designer.cs">
+      <DependentUpon>202303182019491_sssd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303182059323_sssda.cs" />
+    <Compile Include="Migrations\202303182059323_sssda.designer.cs">
+      <DependentUpon>202303182059323_sssda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303182208451_sssdaxxss.cs" />
+    <Compile Include="Migrations\202303182208451_sssdaxxss.designer.cs">
+      <DependentUpon>202303182208451_sssdaxxss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303182235267_sssdaxxssssccccc.cs" />
+    <Compile Include="Migrations\202303182235267_sssdaxxssssccccc.designer.cs">
+      <DependentUpon>202303182235267_sssdaxxssssccccc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -540,6 +564,7 @@
     <Content Include="Areas\Admin\Views\QLProduct\QLProduct.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\AddProduct.cshtml" />
     <Content Include="Content\owlcarousel\LICENSE" />
+    <Content Include="Areas\Admin\Views\QLProduct\AddSize.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -661,6 +686,8 @@
     <Content Include="Views\Product\Vans.cshtml" />
     <Content Include="Views\Product\Converse.cshtml" />
     <Content Include="Views\Product\Jodan.cshtml" />
+    <Content Include="Views\Shared\ImagesProduct.cshtml" />
+    <Content Include="Views\Shared\SizeProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -708,6 +735,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303170844308_ups.resx">
       <DependentUpon>202303170844308_ups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303181939018_c.resx">
+      <DependentUpon>202303181939018_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303181956365_cx.resx">
+      <DependentUpon>202303181956365_cx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303182019491_sssd.resx">
+      <DependentUpon>202303182019491_sssd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303182059323_sssda.resx">
+      <DependentUpon>202303182059323_sssda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303182208451_sssdaxxss.resx">
+      <DependentUpon>202303182208451_sssdaxxss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303182235267_sssdaxxssssccccc.resx">
+      <DependentUpon>202303182235267_sssdaxxssssccccc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
