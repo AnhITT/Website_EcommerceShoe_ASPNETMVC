@@ -48,15 +48,20 @@
                             <i class="fa fa-minus"></i>
                         </button>
                     </div>
-                    <input type="text" class="form-control bg-light text-center" value="1">
+                    <input type="text" id="quantity_value" class="form-control bg-light text-center" value="1">
                     <div class="input-group-btn">
                         <button class="btn btn-dark btn-plus">
                             <i class="fa fa-plus"></i>
                         </button>
                     </div>
                 </div>
-                <button class="btn btn-dark px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>
             </div>
+            <a onclick="proceedAdd();" href="#">
+                <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                    <i class="fas fa-shopping-cart mr-1"></i>
+                    Thêm vào giỏ hàng
+                </button>
+            </a>
             <div class="d-flex pt-2">
                 <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
                 <div class="d-inline-flex">
@@ -418,3 +423,9 @@
             box-shadow: 0 0 1px #212121;
         }
 </style>
+<script>
+    function proceedAdd() {
+
+        alert("Thêm vào giỏ hàng thành công");
+    }
+</script>

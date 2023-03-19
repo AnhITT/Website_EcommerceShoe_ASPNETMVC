@@ -74,5 +74,17 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             }
             return Json(new { success = false });
         }
+
+        public ActionResult ListCategory(int? page, int id)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
+            ViewBag.dangBan = "Đang bán";
+            ViewBag.tamNgung = "Tạm ngưng";
+            ViewBag.chuaBan = "Chưa bán";
+            ViewBag.Titlee = "Danh sách sản phẩm";
+            return View(data.Products.Where(n => n.idProduct == id).ToPagedList(pageNumber, pageSize));
+        }
+
     }
 }

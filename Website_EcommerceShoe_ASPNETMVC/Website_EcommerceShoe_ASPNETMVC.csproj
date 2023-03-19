@@ -475,6 +475,10 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\faviconn.ico" />
     <Content Include="Content\Image\background-login.jpg" />
+    <Content Include="Content\Image\Background\1.png" />
+    <Content Include="Content\Image\Background\2.png" />
+    <Content Include="Content\Image\Background\3.png" />
+    <Content Include="Content\Image\Background\4.png" />
     <Content Include="Content\Image\Icons\icons8-facebook-48.png" />
     <Content Include="Content\Image\Icons\icons8-github-48.png" />
     <Content Include="Content\Image\Icons\icons8-google-48.png" />
@@ -563,9 +567,11 @@
     <Content Include="Areas\Admin\Views\ImageProduct\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\QLProduct.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\AddProduct.cshtml" />
-    <Content Include="Content\owlcarousel\LICENSE" />
     <Content Include="Areas\Admin\Views\QLProduct\AddSize.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\ListCategory.cshtml" />
+    <Content Include="Content\owlcarousel\LICENSE" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\CartJs.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -693,7 +699,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Blog\" />
-    <Folder Include="Content\Image\Background\" />
     <Folder Include="Content\Image\Product\" />
   </ItemGroup>
   <ItemGroup>

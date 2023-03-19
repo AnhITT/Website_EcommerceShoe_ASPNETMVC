@@ -22,6 +22,8 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         {
             ViewBag.Titlee = "Hình ảnh sản phẩm";
             var items = data.ImagesProducts.Where(x => x.productID == id).ToList();
+            IList<ImagesProduct> item = data.ImagesProducts.Where(n => n.productID == id ).ToList();
+            ViewBag.img = item;
             var sp = data.Products.Find(id);
             if (file != null && file.ContentLength > 0)
             {
@@ -45,6 +47,18 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
                 ViewBag.Thongbao = "Vui lòng chọn ảnh";
                 return View();
             }
+        }
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var item = data.ImagesProducts.Find(id);
+            if (item != null)
+            {
+                data.ImagesProducts.Remove(item);
+                data.SaveChanges();
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
         }
     }
 }

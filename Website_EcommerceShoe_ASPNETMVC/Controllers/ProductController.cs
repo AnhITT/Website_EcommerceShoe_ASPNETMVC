@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+using System.Xml.Linq;
 using Website_EcommerceShoe_ASPNETMVC.Models;
 using Website_EcommerceShoe_ASPNETMVC.Models.EF;
 
@@ -20,7 +21,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
         // GET: Product
 
        
-        private IList<Product> GetProductCartegory(int idDanhMuc)
+        public IList<Product> GetProductCartegory(int idDanhMuc)
         {
             IList<Product> item = data.Products.Where(n => n.idCar == idDanhMuc).ToList();
             return item;
@@ -35,12 +36,19 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             IList<Sizes> item = data.Sizes.Where(n => n.productID == idProduct).ToList();
             return item;
         }
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, string search)
         {
+            var sp = from l in data.Products select l;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                search = search.ToLower();
+                sp = sp.Where(s => s.nameProduct.ToLower().Contains(search));
+            }
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
-            return View(data.Products.ToList().ToPagedList(pageNum, pageSize));
+            return View(sp.ToList().ToPagedList(pageNum, pageSize));
         }
 
         public ActionResult Detail(int id)

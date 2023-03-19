@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.Product>
+
+@{
+    ViewBag.Title = "ListCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ListCategory</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand.nameBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.nameCar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nameProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descriptionProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlImgCover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusProduct)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand.nameBrand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.nameCar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descriptionProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlImgCover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priceProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusProduct)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idProduct }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idProduct }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idProduct })
+        </td>
+    </tr>
+}
+
+</table>

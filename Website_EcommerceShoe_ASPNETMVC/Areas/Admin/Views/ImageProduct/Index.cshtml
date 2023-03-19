@@ -1,10 +1,12 @@
-﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.ImagesProduct>
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models.EF
 
 @{
+    List<ImagesProduct> img = ViewBag.img;
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item h5"><a href="/Admin/QLProduct/QLProduct"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
-            <li class="breadcrumb-item h5">Thêm ảnh sản phẩm</li>
+            <li class="breadcrumb-item h5">Thêm ảnh</li>
         </ol>
     </nav>
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -22,9 +24,7 @@
                 @Html.ValidationSummary(true)
 
                 <div class="card-tools">
-                    <button type="button" class="btn btn-danger" title="Collapse">
-                        Xóa hết
-                    </button>
+
                     <div class="mt-2">
                         Tải ảnh
                         <input type="file" name="file" /> <br />
@@ -32,29 +32,23 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
-                    <a class="btn btn-dark" href="QLProduct"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
+                    <a class="btn btn-dark" href="/Admin/QLProduct/QLProduct"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
                     <input type="submit" value="Thêm ảnh" class="btn btn-success m-3" />
                 </div>
             }
         </div>
         <div class="card-body">
             <ul class="glImage">
-                @if (Model != null)
+                @foreach (ImagesProduct item in img)
                 {
-                    foreach (var item in Model)
-                    {
-                        <li id="trow_@item.idImg">
-                            <img src="@item.urlImg" width="200" />
-                            <div class="box-btn">
-                                <a href="#" data-id="@item.idImg" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
-
-                                <a href="#" data-id="@item.idImg" class="btn btn-sm btn-success btnDefault"><i class="fa fa-check"></i></a>
-
-                                <a href="#" data-id="@item.idImg" class="btn btn-sm btn-warning btnDefault">X</a>
-                            </div>
-                        </li>
-                    }
+                    <li id="trow_@item.idImg">
+                        <img src="~/Content/Image/Product/@item.urlImg" width="200" />
+                        <div class="box-btn">
+                            <a href="#" data-id="@item.idImg" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </li>
                 }
+
             </ul>
         </div>
         <!-- /.card-body -->
@@ -90,3 +84,27 @@
         text-align: center;
     }
 </style>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa ảnh này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/Admin/ImageProduct/Delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+}
