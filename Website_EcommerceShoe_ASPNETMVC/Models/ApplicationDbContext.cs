@@ -14,7 +14,6 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models
     {
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<ImagesProduct> ImagesProducts { get; set; }

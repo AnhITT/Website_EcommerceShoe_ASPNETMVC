@@ -97,97 +97,105 @@
                         </li>
                     </ul>
                 </div>
-                <div class="d-flex justify-content-end">
-                    <a style="font-size: 18px;" href="/Account/Login" id="loginLink" class="fas fa-shopping-cart text-dark mr-4"></a>
-                    @Html.Partial("_LoginPartial")
-                </div>
+                <ul class="navbar_user">
+                    <li class="checkout">
+                        <a href="/ShoppingCart/Index">
+                            <i class="fa fa-shopping-cart text-dark" aria-hidden="true"></i>
+                            <span id="checkout_items" class="checkout_items">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        @Html.Partial("_LoginPartial")
+                    </li>
+                </ul>
             </div>
-        </header>
-        <!-- END: HEADER -->
-        <div>
-            @RenderBody()
-        </div>
-        <!-- FOOTER -->
-        <footer class="bg-black text-white">
-            <div class="bg-light text-center text-lg-start">
-                <div class="text-center p-3" style="background-color: #212529; ">
-                    <section class="">
-                        <div class="container text-center text-md-start mt-5">
-                            <div class="row mt-3">
-                                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                    <h6 class="text-uppercase fw-bold">Về TANA</h6>
-                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
-                                    <p class="text-justify">
-                                        Tại Tana, mỗi sản phẩm đều mang theo sự cá tính và sành điệu, đại diện cho
-                                        hình ảnh giới trẻ
-                                        hiện đại - biểu tượng cho sự dẫn đầu phong cách thời đại mới.
-                                    </p>
-                                </div>
-                                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
-                                    <h6 class="text-uppercase fw-bold">Sản Phẩm</h6>
-                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
-                                    <p>
-                                        <a href="/products/top" class="text-white" style="text-decoration:none;">Top</a>
-                                    </p>
-                                    <p>
-                                        <a href="/products/bottom" class="text-white"
-                                           style="text-decoration:none;">Bottom</a>
-                                    </p>
-                                    <p>
-                                        <a href="/products/accessories" class="text-white"
-                                           style="text-decoration:none;">Accessories</a>
-                                    </p>
-                                    <p>
-                                        <a href="/Products" class="text-white" style="text-decoration:none;">All</a>
-                                    </p>
-                                </div>
-                                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
-                                    <h6 class="text-uppercase fw-bold">Hỗ trợ</h6>
-                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
-                                    <p>
-                                        <a href="#!" class="text-white " style="text-decoration:none;">Tài khoản</a>
-                                    </p>
-                                    <p>
-                                        <a href="#!" class="text-white" style="text-decoration:none;">
-                                            Chính sách bảo
-                                            hành
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href="#!" class="text-white" style="text-decoration:none;">
-                                            Vận
-                                            chuyển
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href="#!" class="text-white" style="text-decoration:none;">
-                                            Thanh toán
-                                            online
-                                        </a>
-                                    </p>
-                                </div>
-                                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-justify">
-                                    <h6 class="text-uppercase fw-bold">Liên hệ</h6>
-                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                        style="width: 60px; background-color: #7c4dff; height: 1px" />
-                                    <p><i class="fa-solid fa-house"></i> Khu E, Đại học HUTECH</p>
-                                    <p><i class="fa-sharp fa-solid fa-envelope"></i> Tana@gmail.com</p>
-                                    <p><i class="fa-sharp fa-solid fa-phone"></i> 01 234 567 88</p>
-                                    <p><i class="fa-solid fa-clock"></i> Mon - Sun | 09:30 ~ 21:30</p>
-                                </div>
+    </header>
+    
+    <!-- END: HEADER -->
+    <div>
+        @RenderBody()
+    </div>
+    <!-- FOOTER -->
+    <footer class="bg-black text-white">
+        <div class="bg-light text-center text-lg-start">
+            <div class="text-center p-3" style="background-color: #212529; ">
+                <section class="">
+                    <div class="container text-center text-md-start mt-5">
+                        <div class="row mt-3">
+                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                <h6 class="text-uppercase fw-bold">Về TANA</h6>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                <p class="text-justify">
+                                    Tại Tana, mỗi sản phẩm đều mang theo sự cá tính và sành điệu, đại diện cho
+                                    hình ảnh giới trẻ
+                                    hiện đại - biểu tượng cho sự dẫn đầu phong cách thời đại mới.
+                                </p>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
+                                <h6 class="text-uppercase fw-bold">Sản Phẩm</h6>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                <p>
+                                    <a href="/products/top" class="text-white" style="text-decoration:none;">Top</a>
+                                </p>
+                                <p>
+                                    <a href="/products/bottom" class="text-white"
+                                       style="text-decoration:none;">Bottom</a>
+                                </p>
+                                <p>
+                                    <a href="/products/accessories" class="text-white"
+                                       style="text-decoration:none;">Accessories</a>
+                                </p>
+                                <p>
+                                    <a href="/Products" class="text-white" style="text-decoration:none;">All</a>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
+                                <h6 class="text-uppercase fw-bold">Hỗ trợ</h6>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                <p>
+                                    <a href="#!" class="text-white " style="text-decoration:none;">Tài khoản</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-white" style="text-decoration:none;">
+                                        Chính sách bảo
+                                        hành
+                                    </a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-white" style="text-decoration:none;">
+                                        Vận
+                                        chuyển
+                                    </a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-white" style="text-decoration:none;">
+                                        Thanh toán
+                                        online
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-justify">
+                                <h6 class="text-uppercase fw-bold">Liên hệ</h6>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 1px" />
+                                <p><i class="fa-solid fa-house"></i> Khu E, Đại học HUTECH</p>
+                                <p><i class="fa-sharp fa-solid fa-envelope"></i> Tana@gmail.com</p>
+                                <p><i class="fa-sharp fa-solid fa-phone"></i> 01 234 567 88</p>
+                                <p><i class="fa-solid fa-clock"></i> Mon - Sun | 09:30 ~ 21:30</p>
                             </div>
                         </div>
-                    </section>
-                    © 2022 Copyright:
-                    <a class="text-white" href="#" style="text-decoration:none;">Tana</a>
-                </div>
-                <!-- Copyright -->
+                    </div>
+                </section>
+                © 2022 Copyright:
+                <a class="text-white" href="#" style="text-decoration:none;">Tana</a>
             </div>
-        </footer>
-        <!-- END: FOOTER -->
+            <!-- Copyright -->
+        </div>
+    </footer>
+    <!-- END: FOOTER -->
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -201,3 +209,4 @@
 </body>
 
 </html>
+

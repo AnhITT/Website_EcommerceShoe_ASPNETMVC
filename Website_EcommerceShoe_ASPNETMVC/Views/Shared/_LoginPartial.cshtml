@@ -5,15 +5,19 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
-            </li>
-            <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <ul class="nav navbar-nav navbar-right">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @User.Identity.GetUserName()
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class=" dropdown-item text-decoration-none text-dark text-center" href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
+                </div>
+            </div>
         </ul>
     }
 }
 else
 {
-        <a style="font-size: 18px;" href="/Account/Login" id="loginLink" class="fa-solid fa-user text-dark"></a>
+    <a style="font-size: 18px;" href="/Account/Login" id="loginLink" class="fa-solid fa-user text-dark"></a>
 }

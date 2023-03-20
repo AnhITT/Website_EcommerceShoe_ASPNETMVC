@@ -14,7 +14,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         public string descriptionProduct { get; set; }
         public string UrlImgCover { get; set; }
 
-        public double priceProduct { get; set; }
+        public decimal priceProduct { get; set; }
         public bool statusProduct { get; set; }
         public virtual ICollection<ImagesProduct> IdImg { get; set; }
         public virtual ICollection<ProductSale> IdSale { get; set; }

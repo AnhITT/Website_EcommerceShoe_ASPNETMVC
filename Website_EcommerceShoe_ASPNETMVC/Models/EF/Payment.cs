@@ -12,6 +12,6 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         public int idPayment { get; set; }
         public DateTime datePayment { get; set; }
         public string descriptionPayment { get; set; }
-        public double totalMoney { get; set; }
+        public decimal totalMoney { get; set; }
     }
 }
