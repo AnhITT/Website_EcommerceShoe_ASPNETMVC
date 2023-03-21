@@ -99,10 +99,9 @@
                 </div>
                 <ul class="navbar_user">
                     <li class="checkout">
-                        <a href="/ShoppingCart/Index">
-                            <i class="fa fa-shopping-cart text-dark" aria-hidden="true"></i>
-                            <span id="checkout_items" class="checkout_items">0</span>
-                        </a>
+                        
+                        @Html.Partial("_ShoppingCartPartial")
+
                     </li>
                     <li>
                         @Html.Partial("_LoginPartial")
