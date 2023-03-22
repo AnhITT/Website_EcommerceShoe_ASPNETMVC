@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section style="background-color: white; color:black;">
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center pb-5">
+                    <div class="text-start col-md-7 col-xl-5 mb-4 mb-md-0">
+                        <div class="py-4 d-flex flex-row">
+                            <h5><span class="far fa-check-square pe-2"></span><b> TANA </b> | </h5>
+                            <span class="ps-2"> Pay</span>
+                        </div>
+                        <div class="d-flex pt-2">
+                            <div class="ms-auto">
+
+                            </div>
+                        </div>
+                        <p>
+                            Họ tên:
+                        </p>
+                        <div class="rounded d-flex" style="background-color: #f8f9fa;">
+
+                        </div>
+                        <p class="mt-3">
+                            Địa chỉ:
+                        </p>
+                        <div class="rounded d-flex" style="background-color: #f8f9fa;">
+
+                        </div>
+                        <p class="mt-3">
+                            Ghi chú:
+                        </p>
+                        <div class="rounded d-flex" style="background-color: #f8f9fa;">
+
+                        </div>
+                        <hr />
+                        <div class="pt-2">
+
+                            <form class="pb-3">
+                                <div class="d-flex flex-row pb-3">
+                                    <div class="d-flex align-items-center pe-2">
+                                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioCash"
+                                               value="" aria-label="..." checked />
+                                    </div>
+                                    <div class="rounded border d-flex w-100 p-3 align-items-center">
+                                        <p class="mb-0">
+                                            <i class="fa-solid fa-money-bill fa-lg text-primary pe-2"></i> Thanh toán khi nhận hàng
+                                        </p>
+
+                                    </div>
+                                </div>
+
+
+                            </form>
+                            <input type="button" onclick="proceedPayment();" value="Proceed to payment" class="btn btn-primary btn-block btn-lg" />
+                        </div>
+                    </div>
+
+                    <div class="text-start col-md-5 col-xl-4 offset-xl-1">
+                        <div class="py-4 d-flex justify-content-end">
+                            <h6><a href="#!">Cancel and return to website</a></h6>
+                        </div>
+                        <div class="rounded d-flex flex-column p-2" style="background-color: #f8f9fa;">
+                            <div class="p-2 me-3">
+                                <h4>Order</h4>
+                            </div>
+                                <div class="p-2 d-flex">
+                                </div>
+
+
+
+                            <div class="border-top px-2 mx-2"></div>
+                            <div class="p-2 d-flex pt-3">
+                                <div class="col-8">Tổng tiền</div>
+                            </div>
+                            <div class="p-2 d-flex">
+                                <div class="col-8">
+                                    Giảm giá
+                                </div>
+                            </div>
+
+                            <div class="border-top px-2 mx-2"></div>
+                            <div class="p-2 d-flex pt-3">
+                                <div class="col-8"><b>Total</b></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function proceedPayment() {
+        if (document.getElementById("radioCash").checked == true) {
+            swal("Đặt hàng thành công", "Chúng tôi đang xử lí đơn hàng của bạn !", "success").then((value) => {
+                window.location.replace("/home");
+            });
+
+        }
+    }
+</script>
+
+<style>
+    body {
+        background-color: white !important;
+        background-image: none !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+</style>
+
+</html>

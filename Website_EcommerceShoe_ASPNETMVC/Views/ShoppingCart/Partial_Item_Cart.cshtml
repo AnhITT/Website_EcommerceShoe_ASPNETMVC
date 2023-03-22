@@ -33,14 +33,15 @@
                         $@item.TotalPrice
                     </td>
                     <td>
-                        <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete">Xóa</a>
-                        <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-primary btnUpdate">Cập nhật</a>
+                        <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnDelete"><i class="fa fa-trash"></i></a>
+                        <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnUpdate"><i class="fa-solid fa-arrows-rotate"></i></a>
+
                     </td>
                 </tr>
                 i++;
             }
             <tr>
-                <th colspan="6" class="text-right">Tổng: $@tongtien</th>
+                <th colspan="6" class="text-right">Total Money: $@tongtien</th>
                 <th></th>
             </tr>
 
@@ -48,7 +49,7 @@
         else
         {
             <tr>
-                <th colspan="7">Không có sản phẩm trong giỏ hàng!!</th>
+                <th colspan="7">Cart is empty!!</th>
             </tr>
         }
     </tbody>

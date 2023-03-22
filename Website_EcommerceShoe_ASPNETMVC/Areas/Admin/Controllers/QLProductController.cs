@@ -108,5 +108,16 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             data.SaveChanges();
             return RedirectToAction("AddSize");
         }
+        public ActionResult DeleteSize(int id)
+        {
+            var item = data.Sizes.Find(id);
+            if (item != null)
+            {
+                data.Sizes.Remove(item);
+                data.SaveChanges();
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
+        }
     }
 }

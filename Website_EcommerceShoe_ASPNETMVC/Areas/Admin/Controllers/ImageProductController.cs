@@ -48,7 +48,6 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
                 return View();
             }
         }
-        [HttpPost]
         public ActionResult Delete(int id)
         {
             var item = data.ImagesProducts.Find(id);

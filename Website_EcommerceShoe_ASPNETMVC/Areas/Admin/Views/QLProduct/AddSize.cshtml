@@ -1,7 +1,8 @@
 ﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Sizes
+@using Website_EcommerceShoe_ASPNETMVC.Models.EF
 
 @{
-
+    List<Sizes> size = ViewBag.size;
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item h5"><a href="/Admin/QLProduct/QLProduct"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
@@ -42,7 +43,27 @@
                                     <input type="submit" value="Thêm size" class="btn btn-success m-3" />
                                 </div>
                             }
-                            @Html.Partial("ViewSizeInProduct")
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Số lượng</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Sizes item in size)
+                                    {
+                                        <tr id="trow_@item.idSize">
+                                            <td>@item.nameSize</td>
+                                            <td>@item.quantitySize</td>
+                                            <td>
+                                                <a href="#" data-id="@item.idSize" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -52,3 +73,26 @@
 </section>
 
 
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa size này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/Admin/QLProduct/DeleteSize',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+}

@@ -1,5 +1,30 @@
 ﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Product
+@helper Downline(string input)
+{
 
+    if (input == null)
+    {
+        @input
+    }
+
+    else
+    {
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (input[i] == '.')
+            {
+                @input[i]
+                <br />
+            }
+            else
+            {
+                @input[i]
+            }
+
+        }
+
+    }
+}
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,7 +61,7 @@
             <h3 class="font-weight-semi-bold">@Model.nameProduct</h3>
 
             <h3 class="font-weight-semi-bold mb-4">$@Model.priceProduct</h3>
-            <p class="mb-4">@Html.DisplayFor(model => model.descriptionProduct)</p>
+            <p class="mb-4">@Downline(Model.descriptionProduct)</p>
             <div class="d-flex mb-3">
                 @Html.Partial("SizeProduct")
             </div>
@@ -559,4 +584,4 @@
 @section scripts
     {
     <script src="~/Scripts/single_custom.js"></script>
-    }
+}

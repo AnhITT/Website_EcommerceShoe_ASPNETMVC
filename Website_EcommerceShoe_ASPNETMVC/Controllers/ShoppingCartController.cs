@@ -92,7 +92,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
                 item.TotalPrice = item.Quantity * item.Price;
                 cart.AddToCart(item, quantity);
                 Session["Cart"] = cart;
-                code = new { Success = true, msg = "Thêm sản phẩm vào giở hàng thành công!", code = 1, Count = cart.Items.Count };
+                code = new { Success = true, msg = "Product added to cart successfully!", code = 1, Count = cart.Items.Count };
             }
             return Json(code);
         }
@@ -125,21 +125,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             return Json(code);
         }
 
-
-
-        [HttpPost]
-        public ActionResult DeleteAll()
-        {
-            var code = new { Success = false, msg = "", code = -1, Count = 0 };
-            ShoppingCart cart = (ShoppingCart)Session["Cart"];
-            if (cart != null)
-            {
-                cart.ClearCart();
-                code = new { Success = true, msg = "", code = 1, Count = cart.Items.Count };
-                return Json(new { Success = true });
-            }
-            return Json(new { Success = false });
-        }
+       
         public ActionResult ErrorCart()
         {
             return View();

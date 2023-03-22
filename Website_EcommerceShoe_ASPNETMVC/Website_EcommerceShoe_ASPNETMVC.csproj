@@ -241,6 +241,10 @@
     <Compile Include="Migrations\202303201539246_ls.designer.cs">
       <DependentUpon>202303201539246_ls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303221048111_size.cs" />
+    <Compile Include="Migrations\202303221048111_size.designer.cs">
+      <DependentUpon>202303221048111_size.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -497,10 +501,17 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\faviconn.ico" />
     <Content Include="Content\Image\background-login.jpg" />
+    <Content Include="Content\Image\Background\0139937c2f641ab61fd020844ccfd459.png" />
+    <Content Include="Content\Image\Background\1-DrMR2bKc5NsKhOkGKqofOw.png" />
     <Content Include="Content\Image\Background\1.png" />
     <Content Include="Content\Image\Background\2.png" />
     <Content Include="Content\Image\Background\3.png" />
+    <Content Include="Content\Image\Background\34c357ee31431b6cd13fe1ebe1d47980.png" />
     <Content Include="Content\Image\Background\4.png" />
+    <Content Include="Content\Image\Background\4f2f9790bc2d20eabbf50ec30df861fc.png" />
+    <Content Include="Content\Image\Background\a509ce51391852498f89d9d5df633cbd.png" />
+    <Content Include="Content\Image\Background\a9fa3789bd9283a662ddee811f62b2c3.png" />
+    <Content Include="Content\Image\Background\about.jpg" />
     <Content Include="Content\Image\errorcart.png" />
     <Content Include="Content\Image\Icons\icons8-facebook-48.png" />
     <Content Include="Content\Image\Icons\icons8-github-48.png" />
@@ -593,7 +604,6 @@
     <Content Include="Areas\Admin\Views\QLProduct\AddProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Category\ListCategory.cshtml" />
     <Content Include="Content\owlcarousel\LICENSE" />
-    <Content Include="Areas\Admin\Views\Shared\ViewSizeInProduct.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\AddSize.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CartJs.js" />
@@ -724,6 +734,8 @@
     <Content Include="Views\ShoppingCart\Partial_Item_Cart.cshtml" />
     <Content Include="Views\Shared\_ShoppingCartPartial.cshtml" />
     <Content Include="Views\ShoppingCart\ErrorCart.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -803,6 +815,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303201539246_ls.resx">
       <DependentUpon>202303201539246_ls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303221048111_size.resx">
+      <DependentUpon>202303221048111_size.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

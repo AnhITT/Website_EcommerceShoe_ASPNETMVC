@@ -18,13 +18,12 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         public bool statusProduct { get; set; }
         public virtual ICollection<ImagesProduct> IdImg { get; set; }
         public virtual ICollection<ProductSale> IdSale { get; set; }
+        public virtual ICollection<Sizes> IdSize { get; set; }
         public int? idCar { get; set; }
-
         public virtual Category Category { get; set; }
         public int? idBrand { get; set; }
-
         public virtual Brand Brand { get; set; }
         public virtual ImagesProduct ImagesProduct { get; set; }
-
+        public virtual Sizes Sizes { get; set; }
     }
 }
