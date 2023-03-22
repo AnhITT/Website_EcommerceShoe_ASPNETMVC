@@ -140,6 +140,9 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             }
             return Json(new { Success = false });
         }
-
+        public ActionResult ErrorCart()
+        {
+            return View();
+        }
     }
 }

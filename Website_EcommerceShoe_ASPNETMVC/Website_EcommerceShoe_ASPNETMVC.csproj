@@ -501,6 +501,7 @@
     <Content Include="Content\Image\Background\2.png" />
     <Content Include="Content\Image\Background\3.png" />
     <Content Include="Content\Image\Background\4.png" />
+    <Content Include="Content\Image\errorcart.png" />
     <Content Include="Content\Image\Icons\icons8-facebook-48.png" />
     <Content Include="Content\Image\Icons\icons8-github-48.png" />
     <Content Include="Content\Image\Icons\icons8-google-48.png" />
@@ -590,9 +591,10 @@
     <Content Include="Areas\Admin\Views\ImageProduct\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\QLProduct.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\AddProduct.cshtml" />
-    <Content Include="Areas\Admin\Views\QLProduct\AddSize.cshtml" />
     <Content Include="Areas\Admin\Views\Category\ListCategory.cshtml" />
     <Content Include="Content\owlcarousel\LICENSE" />
+    <Content Include="Areas\Admin\Views\Shared\ViewSizeInProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\QLProduct\AddSize.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CartJs.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -721,6 +723,7 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Partial_Item_Cart.cshtml" />
     <Content Include="Views\Shared\_ShoppingCartPartial.cshtml" />
+    <Content Include="Views\ShoppingCart\ErrorCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

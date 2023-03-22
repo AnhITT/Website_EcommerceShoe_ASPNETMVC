@@ -1,6 +1,7 @@
 ﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Sizes
 
 @{
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item h5"><a href="/Admin/QLProduct/QLProduct"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
@@ -41,7 +42,7 @@
                                     <input type="submit" value="Thêm size" class="btn btn-success m-3" />
                                 </div>
                             }
-
+                            @Html.Partial("ViewSizeInProduct")
                         </div>
                     </div>
                 </div>

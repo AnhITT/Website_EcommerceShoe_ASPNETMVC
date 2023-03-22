@@ -90,9 +90,13 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             return Json(new { success = false });
         }
 
-        public ActionResult AddSize()
+        [HttpGet]
+        public ActionResult AddSize(int id)
         {
             ViewBag.Titlee = "Thêm size";
+            var items = data.Sizes.Where(x => x.productID == id).ToList();
+            IList<Sizes> item = data.Sizes.Where(n => n.productID == id).ToList();
+            ViewBag.size = item;
             return View();
         }
         [HttpPost]

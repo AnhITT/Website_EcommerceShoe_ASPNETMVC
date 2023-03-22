@@ -1,0 +1,13 @@
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models.EF
+@{
+    List<Sizes> size = ViewBag.size;
+}
+
+
+        @foreach (Sizes item in size)
+        {
+            <li id="trow_@item.productID">
+                <p>@item.nameSize</p>
+                <p>@item.quantitySize</p>
+            </li>
+        }
