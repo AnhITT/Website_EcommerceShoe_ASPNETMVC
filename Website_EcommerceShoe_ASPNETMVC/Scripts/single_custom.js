@@ -53,13 +53,13 @@ jQuery(document).ready(function($)
 	initStarRating();
 	initFavorite();
 	initTabs();
-
+	initSize();
 	/* 
 
 	2. Set Header
 
 	*/
-
+	
 	function setHeader()
 	{
 		if(window.innerWidth < 992)
@@ -317,3 +317,4 @@ jQuery(document).ready(function($)
 		}
 	}
 });
+

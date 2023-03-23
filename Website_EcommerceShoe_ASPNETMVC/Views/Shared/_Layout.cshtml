@@ -65,7 +65,7 @@
                             <a class="nav-link snip1582" href="/Home/Index">Home</a>
                         </li>
                         <li id="idCategory" class=" nav-item position-relative">
-                            <a class="nav-link snip1582" href="/Product/Index">Category</a>
+                            <a class="nav-link snip1582" href="/Product/Index">Category <i style="font-size: 12px" class="fa-solid fa-chevron-down"></i></a>
                             <ul class="sub-menu1 border">
                                 <li><a href="/Product/Men">Men</a></li>
                                 <li><a href="/Product/Women">Women</a></li>
@@ -75,7 +75,7 @@
                             </ul>
                         </li>
                         <li id="idShop" class=" nav-item position-relative">
-                            <a class="nav-link snip1582" href="/Product/Index">Shop</a>
+                            <a class="nav-link snip1582" href="/Product/Index">Shop <i style="font-size: 12px" class="fa-solid fa-chevron-down"></i></a>
                             <ul class="sub-menu2 border">
                                 <li><a href="/Product/Nike">Nike</a></li>
                                 <li><a href="/Product/Adidas">Adidas</a></li>
@@ -85,6 +85,7 @@
                                 <li><a href="/Product/Jodan">Jodan </a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link snip1582" href="/Home/About">About</a>
                         </li>
@@ -96,9 +97,9 @@
                         </li>
                     </ul>
                 </div>
-                <ul class="navbar_user">
+                <ul style="margin-bottom: 0rem !important" class="navbar_user">
                     <li class="checkout">
-                        
+
                         @Html.Partial("_ShoppingCartPartial")
 
                     </li>
@@ -107,88 +108,88 @@
                     </li>
                 </ul>
             </div>
-    </header>
-    
-    <!-- END: HEADER -->
-    <div>
-        @RenderBody()
-    </div>
-    <!-- FOOTER -->
-    <footer class="bg-black text-white">
-        <div class="bg-light text-center text-lg-start">
-            <div class="text-center p-3" style="background-color: #212529; ">
-                <section class="">
-                    <div class="container text-center text-md-start mt-5">
-                        <div class="row mt-3">
-                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                <h6 class="text-uppercase fw-bold">About Us Tana</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                    style="width: 60px; background-color: #106eea; height: 1px" />
-                                <p class="text-justify">
-                                    At Tana, each product carries with it personality and sophistication, representing the image of modern youth - a symbol of leading the style of the new era.
-                                </p>
-                            </div>
-                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
-                                <h6 class="text-uppercase fw-bold">Product</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                    style="width: 60px; background-color: #106eea; height: 1px" />
-                                <p>
-                                    <a href="/Product/Nike" class="text-white" style="text-decoration:none;">Nike</a>
-                                </p>
-                                <p>
-                                    <a href="/Product/Adidas" class="text-white"
-                                       style="text-decoration:none;">Adidas</a>
-                                </p>
-                                <p>
-                                    <a href="/Product/Bitis" class="text-white"
-                                       style="text-decoration:none;">Biti's</a>
-                                </p>
-                                <p>
-                                    <a href="/Product" class="text-white" style="text-decoration:none;">All</a>
-                                </p>
-                            </div>
-                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
-                                <h6 class="text-uppercase fw-bold">Learn More</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                    style="width: 60px; background-color: #106eea; height: 1px" />
-                                <p>
-                                    <a href="/Home/About" class="text-white " style="text-decoration:none;">About Us</a>
-                                </p>
-                                <p>
-                                    <a href="/Home/Contact" class="text-white" style="text-decoration:none;">
-                                        Contact
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href="/Home/Blog" class="text-white" style="text-decoration:none;">
-                                        Blog
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href="/Product/Index" class="text-white" style="text-decoration:none;">
-                                        Shopping
-                                    </a>
-                                </p>
-                            </div>
-                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-justify">
-                                <h6 class="text-uppercase fw-bold">Contact</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                    style="width: 60px; background-color: #106eea; height: 1px" />
-                                <p><i class="fa-solid fa-house"></i> Ho Chi Minh City University of Technology (HUTECH)</p>
-                                <p><i class="fa-sharp fa-solid fa-envelope"></i> Tana@gmail.com</p>
-                                <p><i class="fa-sharp fa-solid fa-phone"></i> 01 234 567 88</p>
-                                <p><i class="fa-solid fa-clock"></i> Mon - Sun | 09:30 ~ 21:30</p>
+        </header>
+
+        <!-- END: HEADER -->
+        <div>
+            @RenderBody()
+        </div>
+        <!-- FOOTER -->
+        <footer class="bg-black text-white">
+            <div class="bg-light text-center text-lg-start">
+                <div class="text-center p-3" style="background-color: #212529; ">
+                    <section class="">
+                        <div class="container text-center text-md-start mt-5">
+                            <div class="row mt-3">
+                                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                    <h6 class="text-uppercase fw-bold">About Us Tana</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #106eea; height: 1px" />
+                                    <p class="text-justify">
+                                        At Tana, each product carries with it personality and sophistication, representing the image of modern youth - a symbol of leading the style of the new era.
+                                    </p>
+                                </div>
+                                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
+                                    <h6 class="text-uppercase fw-bold">Product</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #106eea; height: 1px" />
+                                    <p>
+                                        <a href="/Product/Nike" class="text-white" style="text-decoration:none;">Nike</a>
+                                    </p>
+                                    <p>
+                                        <a href="/Product/Adidas" class="text-white"
+                                           style="text-decoration:none;">Adidas</a>
+                                    </p>
+                                    <p>
+                                        <a href="/Product/Bitis" class="text-white"
+                                           style="text-decoration:none;">Biti's</a>
+                                    </p>
+                                    <p>
+                                        <a href="/Product" class="text-white" style="text-decoration:none;">All</a>
+                                    </p>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-justify">
+                                    <h6 class="text-uppercase fw-bold">Learn More</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #106eea; height: 1px" />
+                                    <p>
+                                        <a href="/Home/About" class="text-white " style="text-decoration:none;">About Us</a>
+                                    </p>
+                                    <p>
+                                        <a href="/Home/Contact" class="text-white" style="text-decoration:none;">
+                                            Contact
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="/Home/Blog" class="text-white" style="text-decoration:none;">
+                                            Blog
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="/Product/Index" class="text-white" style="text-decoration:none;">
+                                            Shopping
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 text-justify">
+                                    <h6 class="text-uppercase fw-bold">Contact</h6>
+                                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                        style="width: 60px; background-color: #106eea; height: 1px" />
+                                    <p><i class="fa-solid fa-house"></i> Ho Chi Minh City University of Technology (HUTECH)</p>
+                                    <p><i class="fa-sharp fa-solid fa-envelope"></i> Tana@gmail.com</p>
+                                    <p><i class="fa-sharp fa-solid fa-phone"></i> 01 234 567 88</p>
+                                    <p><i class="fa-solid fa-clock"></i> Mon - Sun | 09:30 ~ 21:30</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                © 2022 Copyright:
-                <a class="text-white" href="#" style="text-decoration:none;">Tana</a>
+                    </section>
+                    © 2022 Copyright:
+                    <a class="text-white" href="#" style="text-decoration:none;">Tana</a>
+                </div>
+                <!-- Copyright -->
             </div>
-            <!-- Copyright -->
-        </div>
-    </footer>
-    <!-- END: FOOTER -->
+        </footer>
+        <!-- END: FOOTER -->
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -198,8 +199,6 @@
     <script src="~/Scripts/CartJs.js"></script>
     <script src="~/Content/owlcarousel/owl.carousel.min.js"></script>
     <script src="~/Scripts/main.js"></script>
-    @RenderSection("scripts", required: false)
 </body>
-
 </html>
 

@@ -1,0 +1,85 @@
+﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Product
+
+@{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item h5"><a href="/Admin/QLProduct/QLProduct"><i class="uil-cart"></i> Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item h5">Chỉnh sửa sản phẩm</li>
+        </ol>
+    </nav>
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center ">Chỉnh sửa sản phẩm</h2>
+                            @using (Html.BeginForm("EditProduct", "QLProduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.ValidationSummary(true)
+                                <div>
+                                    Thương hiệu
+                                    @Html.DropDownList("EditCAR")
+
+                                </div>
+                                <div class="mt-2">
+                                    Danh mục
+                                    @Html.DropDownList("EditBR")
+
+                                </div>
+                                <div class="mt-2">
+                                    Tên sản phẩm
+                                    <div>
+                                        @Html.EditorFor(model => model.nameProduct, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.nameProduct, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="mt-2">
+                                    Mô tả sản phẩm
+                                    <div>
+                                        <textarea> @Html.EditorFor(model => model.descriptionProduct)</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        Hình Ảnh
+                                        @Html.EditorFor(model => model.UrlImgCover, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.UrlImgCover, "", new { @class = "text-danger" })
+                                        <img src="~/Content/Image/Product/@Model.UrlImgCover" width="200" height="300" />
+                                        <input type="file" name="fileupload" />
+                                    </div>
+                                </div>
+
+                                <div class="mt-2">
+                                    Giá sản phẩm
+                                    <div>
+                                        @Html.EditorFor(model => model.priceProduct, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.priceProduct, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="mt-2 d-flex justify-content-start">
+                                    Đăng bán
+                                    <div class="form-check form-switch mx-1">
+                                        @Html.EditorFor(model => model.statusProduct, new { htmlAttributes = new { @class = "form-check-input", @type = "checkbox", @id = "flexSwitchCheckDefault" } })
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a class="btn btn-dark" href="/Admin/QLProduct/QLProduct"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
+                                    <input type="submit" value="Chỉnh sửa sản phẩm" class="btn btn-success m-3" />
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

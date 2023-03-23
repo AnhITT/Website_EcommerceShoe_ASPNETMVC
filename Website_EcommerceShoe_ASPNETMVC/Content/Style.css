@@ -284,8 +284,7 @@ input:valid ~ label {
 
 
 dl,
-ol,
-ul {
+ol, ul{
     margin-bottom: 0rem;
 }
 

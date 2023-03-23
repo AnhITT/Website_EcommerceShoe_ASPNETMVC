@@ -1,6 +1,8 @@
 ﻿using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
@@ -68,13 +70,26 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             }
 
         }
-
-        public ActionResult EditProduct()
+        public ActionResult EditProduct(int id)
         {
-            ViewBag.Titlee = "Thêm mới sản phẩm";
-            ViewBag.idCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar");
-            ViewBag.idBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand");
-            return View();
+            var product = data.Products.Find(id);
+            ViewBag.Titlee = "Chỉnh sửa sản phẩm";
+            ViewBag.EditCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar", product.idCar);
+            ViewBag.EditBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand", product.idBrand);
+            return View(product);
+        }
+        
+        [HttpPost]
+        public ActionResult EditProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                data.Entry(product).State = EntityState.Modified;
+                data.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(product);
+
         }
 
         [HttpPost]
@@ -83,6 +98,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             var item = data.Products.Find(id);
             if (item != null)
             {
+
                 data.Products.Remove(item);
                 data.SaveChanges();
                 return Json(new { success = true });

@@ -1,22 +1,22 @@
-﻿@using Website_EcommerceShoe_ASPNETMVC.Models.EF
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models.EF;
 @{
     List<Sizes> size = ViewBag.SizeProduct;
 }
-<div class="d-flex mb-3">
-    <p class="text-dark font-weight-medium mb-0 mr-3">Select Size:</p>
+<select class="form-select btn border border-dark" id="form-select" aria-label="Default select example">
+    <option selected>Select Size</option>
     @if (size != null)
     {
-        int i = 1;
         foreach (Sizes item in size)
         {
-            <form>
-                <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="size-@i">
-                    <label class="custom-control-label" for="size-@i">@item.nameSize</label>
-                </div>
-            </form>
-            i++;
+            if (item.quantitySize > 0)
+            {
+                <option value="@item.nameSize">@item.nameSize</option>
+            }
         }
     }
-</div>
+</select>
+
+
+
+
 

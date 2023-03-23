@@ -1,10 +1,15 @@
-﻿
-@using PagedList.Mvc;
+﻿@using PagedList.Mvc;
 @model PagedList.PagedList<Website_EcommerceShoe_ASPNETMVC.Models.EF.Product>
-
 @{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item h5"><a href="/Admin/Brand/Index"><i class="uil-tag-alt"></i> Quản lý thương hiệu</a></li>
+            <li class="breadcrumb-item h5">Danh sách sản phẩm</li>
+        </ol>
+    </nav>
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+
 
 <section style="padding-top: 30px" class="content">
     <div class="card">
@@ -38,12 +43,12 @@
                                 <td>@item.Brand.nameBrand</td>
                                 <td>@item.nameProduct</td>
 
-                                    
-                                    <td>
-                                         <img style="width:100px; height: 100px" src="~/Content/Image/Product/@item.UrlImgCover" />
-                                    </td>  
-                                    
-                                    <td>$@String.Format("{0:0}", item.priceProduct)</td>
+
+                                <td>
+                                    <img style="width:100px; height: 100px" src="~/Content/Image/Product/@item.UrlImgCover" />
+                                </td>
+
+                                <td>$@String.Format("{0:0}", item.priceProduct)</td>
                                 <td>
                                     @if (item.statusProduct == true)
                                     {
@@ -57,7 +62,7 @@
                                 <td>
                                     <a href="/Admin/ImageProduct/Index/@item.idProduct" class="btn btn-sm btn-success"><i class="fa-solid fa-image"></i></a>
                                     <a href="/Admin/QLProduct/AddSize/@item.idProduct" class="btn btn-sm btn-primary"><i class="fa-solid fa-shoe-prints"></i></a>
-                                    <a href="/Admin/QLProduct/EditProduct/@item.idProduct" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="/Admin/QLProduct/AddSize/@item.idProduct" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="#" data-id="@item.idProduct" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -66,7 +71,7 @@
                     else
                     {
                         <tr>
-                            <td colspan="7">Không có sản phẩm nào!!!</td>
+                            <td colspan="4">Không có sản phẩm nào!!!</td>
                         </tr>
                     }
                 </tbody>

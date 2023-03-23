@@ -72,5 +72,20 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             }
             return Json(new { success = false });
         }
+        private IList<Product> GetProductBrand(int car)
+        {
+            IList<Product> item = data.Products.Where(n => n.idBrand == car).ToList();
+
+            return item;
+        }
+        public ActionResult ListBrand(int? page, int id)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
+            ViewBag.Titlee = "Danh sách sản phẩm";
+            var i = GetProductBrand(id);
+            return View(i.ToPagedList(pageNumber, pageSize));
+
+        }
     }
 }

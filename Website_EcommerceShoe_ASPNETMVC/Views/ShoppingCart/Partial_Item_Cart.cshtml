@@ -5,6 +5,7 @@
             <th>Image</th>
             <th>Name</th>
             <th>Price</th>
+            <th>Size</th>
             <th style="width:100px;">Quantity</th>
             <th>Total Price</th>
             <th style="width:200px;">
@@ -28,20 +29,23 @@
                     <td>
                         $@item.Price
                     </td>
+                    <td>
+                        @item.Size
+                    </td>
                     <td><input type="number" class="form-control" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
                     <td>
                         $@item.TotalPrice
                     </td>
                     <td>
-                        <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnDelete"><i class="fa fa-trash"></i></a>
                         <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnUpdate"><i class="fa-solid fa-arrows-rotate"></i></a>
+                        <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnDelete"><i class="fa fa-trash"></i></a>
 
                     </td>
                 </tr>
                 i++;
             }
             <tr>
-                <th colspan="6" class="text-right">Total Money: $@tongtien</th>
+                <th colspan="7" class="text-right">Total Money: $@tongtien</th>
                 <th></th>
             </tr>
 

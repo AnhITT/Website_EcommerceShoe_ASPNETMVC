@@ -69,12 +69,14 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             return PartialView();
         }
         [HttpPost]
-        public ActionResult AddToCart(int id, int quantity)
+        public ActionResult AddToCart(int id, string size ,int quantity)
         {
             var code = new { Success = false, msg = "", code = -1, Count = 0 };
             var db = new ApplicationDbContext();
             var checkProduct = db.Products.FirstOrDefault(x => x.idProduct == id);
-            if (checkProduct != null)
+            var checkSize = db.Sizes.FirstOrDefault(x => x.nameSize == size);
+
+            if (checkProduct != null && checkSize != null)
             {
                 ShoppingCart cart = (ShoppingCart)Session["Cart"];
                 if (cart == null)
@@ -85,12 +87,13 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
                 {
                     ProductId = checkProduct.idProduct,
                     ProductName = checkProduct.nameProduct,
-                    Quantity = quantity
+                    Quantity = quantity,
+                    Size = size
                 };
                 item.ProductImg = checkProduct.UrlImgCover;
                 item.Price = checkProduct.priceProduct;
                 item.TotalPrice = item.Quantity * item.Price;
-                cart.AddToCart(item, quantity);
+                cart.AddToCart(item, size, quantity);
                 Session["Cart"] = cart;
                 code = new { Success = true, msg = "Product added to cart successfully!", code = 1, Count = cart.Items.Count };
             }

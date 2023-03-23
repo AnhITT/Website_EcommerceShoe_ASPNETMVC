@@ -8,18 +8,23 @@
         if (tQuantity != '') {
             quatity = parseInt(tQuantity);
         }
-
-        $.ajax({
-            url: '/shoppingcart/addtocart',
-            type: 'POST',
-            data: { id: id, quantity: quatity },
-            success: function (rs) {
-                if (rs.Success) {
-                    $('#checkout_items').html(rs.Count);
-                    alert(rs.msg);
+        var size = $('#form-select').val(); // lấy giá trị được chọn trong phần tử #form-select
+        if (size == "Select Size") {
+            alert("Vui lòng chọn size!");
+        }
+        else {
+            $.ajax({
+                url: '/shoppingcart/addtocart',
+                type: 'POST',
+                data: { id: id, quantity: quatity, size: size },
+                success: function (rs) {
+                    if (rs.Success) {
+                        $('#checkout_items').html(rs.Count);
+                        alert(rs.msg);
+                    }
                 }
-            }
-        });
+            });
+        }
     });
     $('body').on('click', '.btnUpdate', function (e) {
         e.preventDefault();
