@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models;
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -101,6 +102,7 @@
                     <a href="/Admin/Admin/InfoAdmin">
                         <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name">
+                            @User.Identity.Name
                         </span>
                     </a>
                 </div>
@@ -136,6 +138,12 @@
                         </a>
                     </li>
                     <li class="side-nav-item">
+                        <a href="/Admin/QLOrder/QLOrder" class="side-nav-link">
+                            <i class="uil-invoice"></i>
+                            <span> Quản lý hoá đơn </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
                             <i class="uil-users-alt"></i>
                             <span> Quản lý tài khoản </span>
@@ -158,12 +166,7 @@
                             <span> Quản lý sale </span>
                         </a>
                     </li>
-                    <li class="side-nav-item">
-                        <a href="/Admin/QLHoaDon/QLHoaDon" class="side-nav-link">
-                            <i class="uil-invoice"></i>
-                            <span> Quản lý hoá đơn </span>
-                        </a>
-                    </li>
+
                 </ul>
 
 
@@ -211,7 +214,6 @@
                 }
             </style>
             @RenderSection("scripts", required: false)
-            @RenderSection("upload", required: false)
 
 
 </body>

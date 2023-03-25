@@ -9,6 +9,8 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
     public class BlogController : Controller
     {
         // GET: Admin/Blog
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Index()
         {
             return View();

@@ -11,6 +11,8 @@ using Website_EcommerceShoe_ASPNETMVC.Models.EF;
 
 namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class CategoryController : Controller
     {
         // GET: Admin/Category

@@ -1,0 +1,12 @@
+﻿
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <div class="pt-3"><a href="#" class="btn btn-outline-dark flex-shrink-0 btnAddToCart" data-id="@Model.idProduct"><i class="fas fa-shopping-cart mr-1"></i>Add to cart</a></div>
+
+}
+else
+{
+    <div class="pt-3"><a href="\Account\Login" class="btn btn-outline-dark flex-shrink-0" ><i class="fas fa-shopping-cart mr-1"></i>Login and Add to cart</a></div>
+}
+

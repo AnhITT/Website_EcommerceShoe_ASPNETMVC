@@ -4,41 +4,61 @@
 }
 
 <main aria-labelledby="title">
-    <div class="login">
+    <div class="sign-up">
         <div class="form-signup d-flex justify-content-center align-items-center">
             <div class="form-value">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
                 {
                     @Html.AntiForgeryToken()
 
-                    <form action="">
-                        <h2 class="text-center fs-2 text-white fw-bold">Sign Up</h2>
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="inputbox">
-                            <i id="icon" class="fa-solid fa-envelope"></i>
-                            <input type="text" id="Email" name="Email" required autocomplete="off" />
-                            <label for="">Email @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })</label>
-                        </div>
+                <form action="">
+                    <h2 class="text-center fs-1 text-white fw-bold mt-5">Sign Up</h2>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="inputbox">
+                        <i id="icon" class="fa-solid fa-envelope"></i>
+                        <input type="text" id="Email" name="Email" required autocomplete="off" />
+                        <label for="">Email @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })</label>
+                    </div>
+                    <div class="inputbox">
+                        <i id="icon" class="fa-solid fa-user"></i>
+                        <input type="text" id="Name" name="Name" required autocomplete="off" />
+                        <label for="">Name @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })</label>
+                    </div>
 
-                        <div class="inputbox">
-                            <a id="show"><i class="fa-solid fa-eye-slash"></i></a>
-                            <input type="password" id="password" name="password" required autocomplete="off" />
-                            <label for="">Password @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</label>
-                        </div>
-                        <div class="inputbox">
-                            <a id="show1"><i class="fa-solid fa-eye-slash"></i></a>
-                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" required autocomplete="off" />
-                            <label for="">Confirm Password @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</label>
-                        </div>
-                        <button type="submit" class="btn-login">Sign Up</button>
-                        <div class="social-icon text-center">
-                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#"><i class="fa-brands fa-google"></i></a>
-                            <a href="#"><i class="fa-brands fa-microsoft"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </form>
+                    <div class="inputbox">
+                        <a id="show"><i class="fa-solid fa-eye-slash"></i></a>
+                        <input type="password" id="password" name="password" required autocomplete="off" />
+                        <label for="">Password @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</label>
+                    </div>
+                    <div class="inputbox">
+                        <a id="show1"><i class="fa-solid fa-eye-slash"></i></a>
+                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" required autocomplete="off" />
+                        <label for="">Confirm Password @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</label>
+                    </div>
+                    <div class="inputbox">
+                        <i id="icon" class="fa-solid fa-phone"></i>
+                        <input type="text" id="PhoneNumber" name="PhoneNumber" required autocomplete="off" />
+                        <label for="">Phone Number @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })</label>
+                    </div>
+                    <div class="inputbox">
+                        <i id="icon" class="fa-solid fa-location-dot"></i>
+                        <input type="text" id="Address" name="Address" required autocomplete="off" />
+                        <label for="">Address @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <labeb style="color: #fff; font-size: 1em">Birthday</labeb> @Html.ValidationMessageFor(m => m.Birthday, "", new { @class = "text-danger" }) <br />
+                        <input style="padding-right: 0px; color: white; font-size: 20px" type="date" id="Birthday" name="Birthday" required autocomplete="off" />
+                    </div>
+                    <button type="submit" class="btn-login">Sign Up</button>
+                    <div class="social-icon text-center mb-5">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                        <a href="#"><i class="fa-brands fa-microsoft"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </form>
                 }
             </div>
         </div>

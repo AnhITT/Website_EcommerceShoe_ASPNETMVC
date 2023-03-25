@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Website_EcommerceShoe_ASPNETMVC.Models
@@ -69,6 +70,17 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        public DateTime Birthday { get; set; }
+        public string Avatar { get; set; }
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]

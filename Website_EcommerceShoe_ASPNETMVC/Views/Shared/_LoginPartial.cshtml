@@ -3,16 +3,15 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-        @Html.AntiForgeryToken()
-
+                @Html.AntiForgeryToken()
         <ul class="nav navbar-nav navbar-right">
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @User.Identity.GetUserName()
+                    @User.Identity.Name
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class=" dropdown-item text-decoration-none text-dark text-center" href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
-                </div>
+            <li><a class=" dropdown-item text-decoration-none text-dark text-center" href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
+            </div>
             </div>
         </ul>
     }

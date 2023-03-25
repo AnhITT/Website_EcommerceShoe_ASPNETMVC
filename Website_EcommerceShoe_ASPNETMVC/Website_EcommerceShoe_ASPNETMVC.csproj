@@ -46,16 +46,76 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=7.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.7.0.4\lib\net462\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=7.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.7.0.4\lib\net462\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Core, Version=7.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Identity.Core.7.0.4\lib\net462\Microsoft.Extensions.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.7.0.0\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=7.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.7.0.1\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.7.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -180,6 +240,7 @@
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImageProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLProductController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -249,15 +310,43 @@
     <Compile Include="Migrations\202303230655245_b.designer.cs">
       <DependentUpon>202303230655245_b.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303240910566_updateTK.cs" />
+    <Compile Include="Migrations\202303240910566_updateTK.designer.cs">
+      <DependentUpon>202303240910566_updateTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303241032132_zzzzzzzz.cs" />
+    <Compile Include="Migrations\202303241032132_zzzzzzzz.designer.cs">
+      <DependentUpon>202303241032132_zzzzzzzz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303241037186_zzzzzzzzz.cs" />
+    <Compile Include="Migrations\202303241037186_zzzzzzzzz.designer.cs">
+      <DependentUpon>202303241037186_zzzzzzzzz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303241413559_szcx.cs" />
+    <Compile Include="Migrations\202303241413559_szcx.designer.cs">
+      <DependentUpon>202303241413559_szcx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303251530414_das.cs" />
+    <Compile Include="Migrations\202303251530414_das.designer.cs">
+      <DependentUpon>202303251530414_das.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303251612468_dasss.cs" />
+    <Compile Include="Migrations\202303251612468_dasss.designer.cs">
+      <DependentUpon>202303251612468_dasss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ApplicationUserManager.cs" />
+    <Compile Include="Models\ApplicationUserStore.cs" />
     <Compile Include="Models\EF\Blog.cs" />
     <Compile Include="Models\EF\Brand.cs" />
     <Compile Include="Models\EF\Category.cs" />
     <Compile Include="Models\EF\Feedback.cs" />
     <Compile Include="Models\EF\ImagesProduct.cs" />
+    <Compile Include="Models\EF\Order.cs" />
+    <Compile Include="Models\EF\OrderDetail.cs" />
     <Compile Include="Models\EF\Payment.cs" />
     <Compile Include="Models\EF\PaymentMethod.cs" />
     <Compile Include="Models\EF\Product.cs" />
@@ -507,7 +596,6 @@
     <Content Include="Content\Image\background-login.jpg" />
     <Content Include="Content\Image\Background\0139937c2f641ab61fd020844ccfd459.png" />
     <Content Include="Content\Image\Background\1-DrMR2bKc5NsKhOkGKqofOw.png" />
-    <Content Include="Content\Image\Background\1.png" />
     <Content Include="Content\Image\Background\2.png" />
     <Content Include="Content\Image\Background\3.png" />
     <Content Include="Content\Image\Background\34c357ee31431b6cd13fe1ebe1d47980.png" />
@@ -522,16 +610,7 @@
     <Content Include="Content\Image\Icons\icons8-google-48.png" />
     <Content Include="Content\Image\Icons\icons8-microsoft-people-48.png" />
     <Content Include="Content\Image\Icons\icons8-twitter-48.png" />
-    <Content Include="Content\Image\Screenshot 2023-03-16 215810.png" />
-    <Content Include="Content\Image\Screenshot 2023-03-16 215820.png" />
-    <Content Include="Content\Image\Screenshot 2023-03-16 215830.png" />
-    <Content Include="Content\Image\Screenshot 2023-03-17 094529.png" />
-    <Content Include="Content\Image\slider-cam1.jpg" />
-    <Content Include="Content\Image\slider-cam2.jpg" />
-    <Content Include="Content\Image\slider-den1.jpg" />
-    <Content Include="Content\Image\slider-den2.jpg" />
-    <Content Include="Content\Image\slider-trang1.png" />
-    <Content Include="Content\Image\slider-trang2.jpg" />
+    <Content Include="Content\Image\Background\b1.png" />
     <Content Include="Content\owlcarousel\assets\ajax-loader.gif" />
     <Content Include="Content\owlcarousel\assets\owl.carousel.css" />
     <Content Include="Content\owlcarousel\assets\owl.carousel.min.css" />
@@ -611,6 +690,9 @@
     <Content Include="Areas\Admin\Views\QLProduct\AddSize.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\ListBrand.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\EditProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\QLOrder\QLOrder.cshtml" />
+    <Content Include="Areas\Admin\Views\QLOrder\Detail.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CartJs.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -742,11 +824,15 @@
     <Content Include="Views\ShoppingCart\ErrorCart.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\_AddCart.cshtml" />
+    <Content Include="Views\ShoppingCart\Partial_Item_Checkout.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Blog\" />
+    <Folder Include="Areas\Admin\Views\QLAccount\" />
     <Folder Include="Content\Image\Product\" />
   </ItemGroup>
   <ItemGroup>
@@ -827,6 +913,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303230655245_b.resx">
       <DependentUpon>202303230655245_b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303240910566_updateTK.resx">
+      <DependentUpon>202303240910566_updateTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303241032132_zzzzzzzz.resx">
+      <DependentUpon>202303241032132_zzzzzzzz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303241037186_zzzzzzzzz.resx">
+      <DependentUpon>202303241037186_zzzzzzzzz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303241413559_szcx.resx">
+      <DependentUpon>202303241413559_szcx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303251530414_das.resx">
+      <DependentUpon>202303251530414_das.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303251612468_dasss.resx">
+      <DependentUpon>202303251612468_dasss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

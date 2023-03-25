@@ -18,7 +18,7 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center ">Chỉnh sửa sản phẩm</h2>
-                            @using (Html.BeginForm("EditProduct", "QLProduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("EditProduct", "QLProduct", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                             {
                                 @Html.ValidationSummary(true)
                                 <div>
@@ -47,11 +47,11 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                        Hình Ảnh
-                                        @Html.EditorFor(model => model.UrlImgCover, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.UrlImgCover, "", new { @class = "text-danger" })
-                                        <img src="~/Content/Image/Product/@Model.UrlImgCover" width="200" height="300" />
-                                        <input type="file" name="fileupload" />
+                                        <label><strong>Hình Ảnh:</strong></label>
+                                        <img src="@Url.Content("~/Content/Image/Product/"+  Model.UrlImgCover)" width="120" />
+                                        <div class="col-md-10">
+                                            <input type="file" name="fileUpload" Required="required" />
+                                        </div>
                                     </div>
                                 </div>
 

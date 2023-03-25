@@ -15,6 +15,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models
         [Required(ErrorMessage = "Địa chỉ khổng để trống")]
         public string Address { get; set; }
         public string Email { get; set; }
+        public string Note { get; set; }
         public int TypePayment { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models
         public DbSet<ProductSale> ProductSales { get; set; }
         public DbSet<Sizes> Sizes { get; set; }
         public DbSet<Voucher> Vouchers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         public ApplicationDbContext()
             : base("WebsiteTana", throwIfV1Schema: false)

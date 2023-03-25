@@ -13,10 +13,16 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
     public class ShoppingCartController : Controller
     {
         // GET: ShoppingCart
-       
+        private readonly ApplicationDbContext data;
+        public ShoppingCartController()
+        {
+            data = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
+            Session.Timeout = 500000;
             if (cart != null && cart.Items.Any())
             {
                 ViewBag.CheckCart = cart;
@@ -26,17 +32,44 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
         public ActionResult CheckOut()
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
+            Session.Timeout = 500000;
             if (cart != null && cart.Items.Any())
             {
                 ViewBag.CheckCart = cart;
             }
             return View();
         }
-        public ActionResult CheckOutSuccess()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckOut(Order order)
         {
-            return View();
+            ShoppingCart cart = (ShoppingCart)Session["Cart"];
+            if (cart == null)
+                return RedirectToAction("ErrorCart", "ShoppingCart");
+            Random rd = new Random();
+            order.Code = "DH" + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9);
+            
+            cart.Items.ForEach(x => order.OrderDetails.Add(new OrderDetail
+            {
+                ProductId = x.ProductId,
+                Quantity = x.Quantity,
+                Price = x.Price,
+                Size = x.Size
+            }));
+            order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+            order.DateOrder = DateTime.Now;
+            data.Orders.Add(order);
+            data.SaveChanges();
+            Session["Cart"] = null;
+            return RedirectToAction("CheckOutSuccess");
+
         }
-        public ActionResult Partial_Item_ThanhToan()
+        public ActionResult CheckOutSuccess(Order order)
+        {
+            return View(order);
+        }
+
+            public ActionResult Partial_Item_Checkout()
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
             if (cart != null && cart.Items.Any())

@@ -16,6 +16,7 @@ using Website_EcommerceShoe_ASPNETMVC.Models.EF;
 
 namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class QLProductController : Controller
     {
         // GET: Admin/Product
@@ -79,17 +80,28 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             return View(product);
         }
         
-        [HttpPost]
-        public ActionResult EditProduct(Product product)
+        [HttpPost, ActionName("EditProduct")]
+        public ActionResult SaveProduct(int id, HttpPostedFileBase fileUpload)
         {
-            if (ModelState.IsValid)
+            var product = data.Products.Find(id);
+            ViewBag.EditCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar", product.idCar);
+            ViewBag.EditBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand", product.idBrand);
+            if (fileUpload != null && fileUpload.ContentLength > 0)
             {
-                data.Entry(product).State = EntityState.Modified;
+                //lấy tên file được tải lên từ form upload và lưu vào biến fileName.
+                var fileName = Path.GetFileName(fileUpload.FileName);
+
+                //Chứa đường dẫn
+                var path = Path.Combine(Server.MapPath("~/Content/Image/Product/"), fileName);
+
+                //Lưu file
+                fileUpload.SaveAs(path);
+                product.UrlImgCover = fileName;
+                UpdateModel(product);
                 data.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("QLProduct");
             }
             return View(product);
-
         }
 
         [HttpPost]

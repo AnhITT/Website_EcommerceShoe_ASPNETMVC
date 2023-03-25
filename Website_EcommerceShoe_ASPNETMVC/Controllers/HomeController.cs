@@ -26,5 +26,9 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
 
             return View();
         }
+        public ActionResult Action()
+        {
+            return RedirectToAction("Index", "Amin", new { area = " Admin" });
+        }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.ShoppingCartItem>
+
+@if (Model != null && Model.Any())
+{
+    var tongtien = decimal.Zero;
+    <div class="rounded d-flex flex-column p-2" style="background-color: #f8f9fa;">
+        <div class="p-2 me-3 text-center">
+            <h3>Order</h3>
+        </div>
+        @foreach (var item in Model)
+        {
+            tongtien += item.TotalPrice;
+            <div class="p-2 d-flex">
+                <div class="col-5"><img src="~/Content/Image/Product/@item.ProductImg" height="100"/></div>
+                <div class="col-5">@item.ProductName X @item.Quantity</div>
+                <div class="col-2">$@String.Format("{0:0}", item.Price)</div>
+            </div>
+        }
+        <div class="border-top px-2 mx-2"></div>
+        <div class="border-top px-2 mx-2"></div>
+        <div class="p-2 d-flex pt-3">
+            <div class="col-8"><b>Total</b></div>
+            <div class="ms-auto"><b class="text-success">$@String.Format("{0:0}", tongtien)</b></div>
+        </div>
+    </div>
+}
+else
+{
+
+}
