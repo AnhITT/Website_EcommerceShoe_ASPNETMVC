@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.OrderDetail>
+@using Website_EcommerceShoe_ASPNETMVC.Models;
+
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-light">
+        <li class="breadcrumb-item h6"><a href="/User/QLOrder"><i class="uil-tag-alt"></i> Order Management</a></li>
+        <li class="breadcrumb-item h6">Detail Order</li>
+    </ol>
+</nav>
+<div class="col-md-12 mb-5">
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Detail Order</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Mã hoá đơn</th>
+                            <th>Mã sản phẩm</th>
+                            <th>Size </th>
+                            <th>Số lượng</th>
+                            <th>Giá sản phẩm</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            var tongtien = decimal.Zero;
+                            var tonghd = decimal.Zero;
+                            foreach (var item in Model)
+                            {
+                                tongtien = item.Price * item.Quantity;
+                                <tr id="trow_@item.Id">
+                                    <td>@item.Order.Code</td>
+                                    <td>@item.ProductId</td>
+                                    <td>@item.Size</td>
+                                    <td>
+                                        @item.Quantity
+                                    </td>
+                                    <td>$@String.Format("{0:0}", item.Price)</td>
+                                    <td>$@String.Format("{0:0}", tongtien)</td>
+                                </tr>
+                                tonghd += tongtien;
+                            }
+                            <tr>
+                                <th colspan="6" class="text-center">Tổng hoá đơn: $@String.Format("{0:0}", tonghd)</th>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </section>
+</div>
+
+    <style>
+        .page-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>

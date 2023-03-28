@@ -1,0 +1,155 @@
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var userName = "";
+    var email = "";
+    var phone = "";
+    var address = "";
+    var bithday = "";
+    var user = ViewBag.User;
+    if (user != null)
+    {
+        userName = user.Name;
+        email = user.Email;
+        phone = user.PhoneNumber;
+        address = user.Address;
+        bithday = user.Birthday.ToString();
+    }
+}
+<main id="main" class="main container mb-5">
+    <div class="section-title text-center">
+        <h2 class="mt-4"><span>My Profile</span></h2>
+        <p>
+            View and edit your personal information here
+        </p>
+    </div>
+    <section class="section profile">
+        <div class="row">
+            <div class="col-xl-4">
+
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                        <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="Profile" class="rounded-circle">
+                        <h2>@userName</h2>
+                        <h3>@email</h3>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xl-8">
+
+                <div class="card">
+                    <div class="card-body pt-3">
+                        <!-- Bordered Tabs -->
+                        <ul class="nav nav-tabs nav-tabs-bordered d-flex justify-content-around">
+
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#profile-overview">
+                                    Overview
+                                </button>
+                            </li>
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">
+                                    Change
+                                    Password
+                                </button>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content pt-2">
+
+                            @Html.Partial("_PartialProfileOverview")
+
+                            @Html.Partial("EditInformationUser")
+
+                            @Html.Partial("_PartialChangePassword")
+
+                        </div><!-- End Bordered Tabs -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+
+<style>
+
+    .nav-tabs-bordered .nav-link:hover,
+    .nav-tabs-bordered .nav-link:focus {
+        color: #4154f1;
+        cursor: pointer;
+    }
+
+    .nav-tabs-bordered .nav-link.active {
+        background-color: #fff;
+        color: #4154f1;
+    }
+
+    .profile .profile-card img {
+        max-width: 120px;
+    }
+
+    .profile .profile-card h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #2c384e;
+        margin: 10px 0 0 0;
+    }
+
+    .profile .profile-card h3 {
+        font-size: 18px;
+    }
+
+    .profile .profile-card .social-links a {
+        font-size: 20px;
+        display: inline-block;
+        color: rgba(1, 41, 112, 0.5);
+        line-height: 0;
+        margin-right: 10px;
+        transition: 0.3s;
+    }
+
+        .profile .profile-card .social-links a:hover {
+            color: #012970;
+        }
+
+    .profile .profile-overview .row {
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
+
+    .profile .profile-overview .card-title {
+        color: #012970;
+    }
+
+    .profile .profile-overview .label {
+        font-weight: 600;
+        color: rgba(1, 41, 112, 0.6);
+    }
+
+    .profile .profile-edit label {
+        font-weight: 600;
+        color: rgba(1, 41, 112, 0.6);
+    }
+
+    .profile .profile-edit img {
+        max-width: 120px;
+    }
+</style>

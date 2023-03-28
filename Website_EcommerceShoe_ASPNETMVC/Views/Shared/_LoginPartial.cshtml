@@ -1,22 +1,131 @@
 ﻿@using Microsoft.AspNet.Identity
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
                 @Html.AntiForgeryToken()
-        <ul class="nav navbar-nav navbar-right">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @User.Identity.Name
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class=" dropdown-item text-decoration-none text-dark text-center" href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
-            </div>
-            </div>
-        </ul>
+            <li style="top: 8px" class="nav-item dropdown nav-user">
+                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt=""
+                         class="user-avatar-md rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                    <div class="nav-user-info text-center">
+                        <h5 class="mb-0 text-white nav-user-name">@User.Identity.GetUserName()</h5>
+                    </div>
+                    <a class="dropdown-item" href="/User/QLInformation"><i class="fas fa-user mr-2"></i>My Profile</a>
+                    <a class="dropdown-item" href="/User/QLOrder"><i class="fa-solid fa-bag-shopping"></i>  Order Management</a>
+                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                </div>
+            </li>
     }
 }
 else
 {
     <a style="font-size: 18px;" href="/Account/Login" id="loginLink" class="fa-solid fa-user text-dark"></a>
 }
+<style>
+    .nav-user-dropdown a i {
+        font-size: 18px;
+    }
+    .nav-user-dropdown {
+        padding: 0px;
+        min-width: 185px;
+        margin-left: -65px;
+    }
+
+
+    .nav-user-info {
+        background-color: #212529;
+        line-height: 1.4;
+        padding: 12px;
+        color: #fff;
+        font-size: 13px;
+        border-radius: 2px 2px 0 0;
+    }
+
+        .nav-user-info .status {
+            float: left;
+            top: 7px;
+            left: 0px;
+        }
+
+    .nav-user-dropdown .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 12px 22px 15px;
+        clear: both;
+        font-weight: 400;
+        color: #212529;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 0;
+        font-size: 13px;
+        line-height: 0.4;
+    }
+
+        .nav-user-dropdown .dropdown-item:hover {
+            background-color: #f7f7fb;
+        }
+
+    /*---- User icon sizes ---*/
+
+    .user-avatar-xxl {
+        height: 128px;
+        width: 128px;
+    }
+
+    .user-avatar-xl {
+        height: 90px;
+        width: 90px;
+    }
+
+    .user-avatar-lg {
+        height: 48px;
+        width: 48px;
+    }
+
+    .user-avatar-md {
+        height: 32px;
+        width: 32px;
+    }
+
+    .user-avatar-sm {
+        height: 24px;
+        width: 24px;
+    }
+
+    .user-avatar-xs {
+        height: 18px;
+        width: 18px;
+    }
+
+
+
+    .avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        border: 2px solid #F7F9FA;
+        background: #F7F9FA;
+        color: #fff;
+    }
+
+
+    .media-attachment div.avatar {
+        border: none;
+    }
+
+    .avatar.bg-primary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .avatar.bg-primary i {
+            font-size: 14px;
+        }
+</style>

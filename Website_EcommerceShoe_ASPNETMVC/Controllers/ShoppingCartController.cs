@@ -6,7 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using Website_EcommerceShoe_ASPNETMVC.Models.EF;
 using Website_EcommerceShoe_ASPNETMVC.Models;
-
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Website_EcommerceShoe_ASPNETMVC.Controllers
 {
@@ -32,6 +33,8 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
         public ActionResult CheckOut()
         {
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            ViewBag.User = user;
             Session.Timeout = 500000;
             if (cart != null && cart.Items.Any())
             {
@@ -48,7 +51,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
                 return RedirectToAction("ErrorCart", "ShoppingCart");
             Random rd = new Random();
             order.Code = "DH" + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9);
-            
+            order.idCustomer = User.Identity.GetUserId();
             cart.Items.ForEach(x => order.OrderDetails.Add(new OrderDetail
             {
                 ProductId = x.ProductId,

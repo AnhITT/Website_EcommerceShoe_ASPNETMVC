@@ -5,7 +5,7 @@
     var email = "";
     var phone = "";
     var address = "";
-    var user = Session["User"] as ApplicationUser;
+    var user = ViewBag.User;
     if (user != null)
     {
         userName = user.Name;

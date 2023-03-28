@@ -16,6 +16,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
         public int Id { get; set; }
         [Required]
         public string Code { get; set; }
+        public string idCustomer { get; set; }
         public string NameCustomer { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }

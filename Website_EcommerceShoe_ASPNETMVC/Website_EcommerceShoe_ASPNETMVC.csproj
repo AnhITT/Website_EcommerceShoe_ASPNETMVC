@@ -247,6 +247,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -333,6 +334,10 @@
     <Compile Include="Migrations\202303251612468_dasss.cs" />
     <Compile Include="Migrations\202303251612468_dasss.designer.cs">
       <DependentUpon>202303251612468_dasss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303271454498_updateOrder.cs" />
+    <Compile Include="Migrations\202303271454498_updateOrder.designer.cs">
+      <DependentUpon>202303271454498_updateOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -808,7 +813,6 @@
     <Content Include="Views\Product\Men.cshtml" />
     <Content Include="Views\Product\Women.cshtml" />
     <Content Include="Views\Product\Kids.cshtml" />
-    <Content Include="Views\Product\Sport.cshtml" />
     <Content Include="Views\Product\Unisex.cshtml" />
     <Content Include="Views\Product\Nike.cshtml" />
     <Content Include="Views\Product\Adidas.cshtml" />
@@ -827,6 +831,13 @@
     <Content Include="Views\Shared\_AddCart.cshtml" />
     <Content Include="Views\ShoppingCart\Partial_Item_Checkout.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
+    <Content Include="Views\User\QLInformation.cshtml" />
+    <Content Include="Views\User\_PartialProfileOverview.cshtml" />
+    <Content Include="Views\User\_PartialChangePassword.cshtml" />
+    <Content Include="Views\User\EditInformationUser.cshtml" />
+    <Content Include="Views\User\QLOrder.cshtml" />
+    <Content Include="Views\User\Detail.cshtml" />
+    <Content Include="Views\User\CancelOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -931,6 +942,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303251612468_dasss.resx">
       <DependentUpon>202303251612468_dasss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303271454498_updateOrder.resx">
+      <DependentUpon>202303271454498_updateOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

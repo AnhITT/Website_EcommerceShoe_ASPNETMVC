@@ -1,0 +1,40 @@
+﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Order
+@{
+    ViewBag.Title = "CancelOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-light">
+        <li class="breadcrumb-item h6"><a href="/User/QLOrder"><i class="uil-tag-alt"></i> Order Management</a></li>
+        <li class="breadcrumb-item h6">Cancel Order</li>
+    </ol>
+</nav>
+<div class="col-md-12 mb-5">
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Cancel Order</h2>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                <h3 class="text-center">Order cancellation confirmation @Model.Code</h3>
+                <div class="text-center">
+                    <a class="btn btn-outline-dark"  href="/User/QLOrder">Back to list</a>
+                    <input type="submit" value="Cancel Order" class="btn btn-outline-dark" />
+                </div>
+                }
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<style>
+    .page-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>

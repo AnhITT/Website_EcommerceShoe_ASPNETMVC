@@ -135,44 +135,41 @@
             <div class="row pb-3">
                 <div class="col-12 pb-1">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <form action="">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search by name">
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-transparent text-dark">
-                                        <i class="fa fa-search"></i>
-                                    </span>
+                        @using (Html.BeginForm("Index", "Product", FormMethod.Get, new { @class = "form-inline" }))
+                        {
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="search" placeholder="Search by name product">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent text-dark">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-
+                            </form>
+                        }
                     </div>
                 </div>
                 @foreach (var product in Model)
                 {
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
-                        <div class="card product-item border-0 mb-4">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" style="height: 400px" src="~/Content/Image/Product/@product.UrlImgCover" alt="">
-                            </div>
-                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                <a href="/Product/Detail/@product.idProduct" class="text-truncate h6 mb-3">@product.nameProduct</a>
-                                <div class="d-flex justify-content-center pt-2">
-                                    <h6>$@product.priceProduct</h6>
-                                    <h6 class="text-muted ml-2"><del></del></h6>
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1 " id="products">
+                        <div class="card product-item mb-4 border border-dark">
+                            <a href="/Product/Detail/@product.idProduct">
+                                <div class="card-header product-img position-relative overflow-hidden bg-transparent p-0">
+                                    <img class="img-fluid w-100" style="height: 400px" src="~/Content/Image/Product/@product.UrlImgCover" alt="">
                                 </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
-                                <a href="/Product/Detail/@product.idProduct" class="btn btn-sm text-dark p-0">
-                                    <i class="fas fa-eye text-dark mr-1"></i>View Detail
-                                </a>
-                                <a href="" class="btn btn-sm text-dark p-0">
-                                    <i class="fas fa-shopping-cart text-dark mr-1"></i>Add To Cart
-                                </a>
-                            </div>
+                                <div class="card-body border-top border-dark text-center p-0 pt-4 pb-3 text-dark">
+                                    <h6 class="text-truncate">@product.nameProduct</h6>
+                                    <div class="d-flex justify-content-center pt-2">
+                                        <h6>$@String.Format("{0:0}", product.priceProduct)</h6>
+                                        <h6 class="text-muted ml-2"><del></del></h6>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 }
+
                 <div class="col-12 pb-1">
                     <div class="d-flex justify-content-center">
                         @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions { LiElementClasses = new string[] { "page-item btn btn-sm btn-dark mx-1" } })

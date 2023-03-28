@@ -1,0 +1,46 @@
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models;
+@{
+    var userName = "";
+    var email = "";
+    var phone = "";
+    var address = "";
+    var bithday = "";
+    var user = ViewBag.User;
+    if (user != null)
+    {
+        userName = user.Name;
+        email = user.Email;
+        phone = user.PhoneNumber;
+        address = user.Address;
+        bithday = user.Birthday.ToString();
+    }
+}
+<div class="tab-pane fade show active profile-overview" id="profile-overview">
+    <h4 class="card-title pt-2">Profile Details</h4>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 label ">Full Name</div>
+        <div class="col-lg-9 col-md-8">@userName</div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 label">Bithday</div>
+        <div class="col-lg-9 col-md-8">@bithday</div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 label">Phone Number</div>
+        <div class="col-lg-9 col-md-8">@phone</div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 label">Email</div>
+        <div class="col-lg-9 col-md-8">@email</div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 label">Address</div>
+        <div class="col-lg-9 col-md-8">@address</div>
+    </div>
+</div>
+

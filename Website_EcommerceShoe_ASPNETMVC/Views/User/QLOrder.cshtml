@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Website_EcommerceShoe_ASPNETMVC.Models.EF.Order>
+
+@{
+    ViewBag.Title = "QLOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-12 mt-5 mb-5" style="min-height: 285px">
+    <section class="content">
+        <div class="card">
+            <h2 class="text-center mt-3">Order Management</h2>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Code Order</th>
+                            <th>Name Order</th>
+                            <th>Delivery Address</th>
+                            <th>Phone</th>
+                            <th>Date Order</th>
+                            <th>Total Price</th>
+                            <th>Payment method</th>
+                            <th style="width:200px;">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr class="text-center">
+                                    <td>@Html.DisplayFor(modelItem => item.Code)</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NameCustomer)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Address)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Phone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DateOrder)
+                                    </td>
+                                    <td>
+                                        $@String.Format("{0:0}", item.TotalAmount)
+                                    </td>
+                                    <td>
+                                        @if (item.TypePayment == 1)
+                                        {
+                                            <span class="badge bg-success text-light">COD</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger text-light">Momo</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="Detail/@item.Id" class="btn btn-sm btn-success"><i class="fa-solid fa-eye"></i></a>
+                                        <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="CancelOrder/@item.Id" class="btn btn-sm btn-secondary"><i class="fa-solid fa-x"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <th class="text-center h3" colspan="8">You don't have any orders yet!!</th>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </section>
+</div>

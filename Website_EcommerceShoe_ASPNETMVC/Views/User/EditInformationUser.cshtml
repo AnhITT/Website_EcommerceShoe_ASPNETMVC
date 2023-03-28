@@ -1,0 +1,78 @@
+﻿@using Website_EcommerceShoe_ASPNETMVC.Models;
+@model Website_EcommerceShoe_ASPNETMVC.Models.ApplicationUser
+
+@{
+    var userName = "";
+    var email = "";
+    var phone = "";
+    var address = "";
+    var bithday = "";
+    var user = ViewBag.User;
+    if (user != null)
+    {
+        userName = user.Name;
+        email = user.Email;
+        phone = user.PhoneNumber;
+        address = user.Address;
+        bithday = user.Birthday.ToString();
+    }
+}
+
+<div class="tab-pane fade profile-edit" id="profile-edit">
+    <!-- Profile Edit Form -->
+    <form>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row mb-3">
+                <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                <div class="col-md-8 col-lg-9">
+                    <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="Profile">
+                    
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                <div class="col-md-8 col-lg-9">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @Value = userName } })
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label for="company" class="col-md-4 col-lg-3 col-form-label">Bithday</label>
+                <div class="col-md-8 col-lg-9">
+                    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", @Value = bithday } })
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="Job" class="col-md-4 col-lg-3 col-form-label">Phone Number</label>
+                <div class="col-md-8 col-lg-9">
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @Value = phone } })
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="Country" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                <div class="col-md-8 col-lg-9">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @Value = email } })
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                <div class="col-md-8 col-lg-9">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @Value = address } })
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        }
+    </form><!-- End Profile Edit Form -->
+
+</div>

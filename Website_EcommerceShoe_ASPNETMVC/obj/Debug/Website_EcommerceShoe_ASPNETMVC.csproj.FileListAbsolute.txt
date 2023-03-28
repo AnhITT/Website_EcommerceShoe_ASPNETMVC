@@ -169,3 +169,4 @@ D:\Website_EcommerceShoe_ASPNETMVC\Website_EcommerceShoe_ASPNETMVC\obj\Debug\Web
 D:\Website_EcommerceShoe_ASPNETMVC\Website_EcommerceShoe_ASPNETMVC\obj\Debug\Website_EcommerceShoe_ASPNETMVC.Migrations.dasss.resources
 D:\Website_EcommerceShoe_ASPNETMVC\Website_EcommerceShoe_ASPNETMVC\bin\EPPlus.dll
 D:\Website_EcommerceShoe_ASPNETMVC\Website_EcommerceShoe_ASPNETMVC\bin\EPPlus.xml
+D:\Website_EcommerceShoe_ASPNETMVC\Website_EcommerceShoe_ASPNETMVC\obj\Debug\Website_EcommerceShoe_ASPNETMVC.Migrations.updateOrder.resources

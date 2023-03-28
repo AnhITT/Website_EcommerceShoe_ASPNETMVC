@@ -1,61 +1,69 @@
-﻿<table class="table table-hover text-center mb-0">
-    <thead class="bg-dark">
-        <tr class="text-center text-light">
-            <th>STT</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Size</th>
-            <th style="width:100px;">Quantity</th>
-            <th>Total Price</th>
-            <th style="width:200px;">
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null)
-        {
-            var i = 0;
-            var tongtien = decimal.Zero;
-            foreach (var item in Model)
-            {
-                tongtien += item.TotalPrice;
-                <tr class="text-center" id="trow_@item.ProductId">
-                    <td>@(i+1)</td>
-                    <td><img src="~/Content/Image/Product/@item.ProductImg" width="60" /></td>
-                    <td>
-                        @item.ProductName
-                    </td>
-                    <td>
-                        $@item.Price
-                    </td>
-                    <td>
-                        @item.Size
-                    </td>
-                    <td><input type="number" class="form-control" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
-                    <td>
-                        $@String.Format("{0:0}", item.TotalPrice)
-                    </td>
-                    <td>
-                        <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnUpdate"><i class="fa-solid fa-arrows-rotate"></i></a>
-                        <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnDelete"><i class="fa fa-trash"></i></a>
+﻿<section class="content">
+    <div class="card">
+            <h2 class="text-center mt-3">Shopping Cart</h2>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>STT</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Size</th>
+                        <th style="width:100px;">Quantity</th>
+                        <th>Total Price</th>
+                        <th style="width:200px;">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        var i = 0;
+                        var tongtien = decimal.Zero;
+                        foreach (var item in Model)
+                        {
+                            tongtien += item.TotalPrice;
+                            <tr class="text-center" id="trow_@item.ProductId">
+                                <td>@(i+1)</td>
+                                <td><img src="~/Content/Image/Product/@item.ProductImg" width="60" /></td>
+                                <td>
+                                    @item.ProductName
+                                </td>
+                                <td>
+                                    $@String.Format("{0:0}", item.Price)
+                                </td>
+                                <td>
+                                    @item.Size
+                                </td>
+                                <td><input type="number" class="form-control" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
+                                <td>
+                                    $@String.Format("{0:0}", item.TotalPrice)
+                                </td>
+                                <td>
+                                    <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnUpdate"><i class="fa-solid fa-arrows-rotate"></i></a>
+                                    <a href="#" data-id="@item.ProductId" class="btn btn-outline-dark btnDelete"><i class="fa fa-trash"></i></a>
 
-                    </td>
-                </tr>
-                i++;
-            }
-            <tr>
-                        
-                <th colspan="7" class="text-right">Total Money: $@String.Format("{0:0}", tongtien)</th>
-                <th></th>
-            </tr>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                        <tr>
+                            <th colspan="7" class="text-right">Total Money: $@String.Format("{0:0}", tongtien)</th>
+                            <th></th>
+                        </tr>
 
-        }
-        else
-        {
-            <tr>
-                <th colspan="8">Cart is empty!!</th>
-            </tr>
-        }
-    </tbody>
-</table>
+                    }
+                    else
+                    {
+                        <tr>
+                            <th class="text-center h3" colspan="8">Cart is empty!!</th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</section>
