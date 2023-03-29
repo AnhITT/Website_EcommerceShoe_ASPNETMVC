@@ -18,14 +18,14 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center ">Chỉnh sửa sản phẩm</h2>
-                            @using (Html.BeginForm("EditProduct", "QLProduct", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("EditProduct", "QLProduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 @Html.ValidationSummary(true)
-                                <div>
-                                    Thương hiệu
-                                    @Html.DropDownList("EditCAR")
+                        <div>
+                            Thương hiệu
+                            @Html.DropDownList("EditCAR")
 
-                                </div>
+                        </div>
                                 <div class="mt-2">
                                     Danh mục
                                     @Html.DropDownList("EditBR")
@@ -50,7 +50,7 @@
                                         <label><strong>Hình Ảnh:</strong></label>
                                         <img src="@Url.Content("~/Content/Image/Product/"+  Model.UrlImgCover)" width="120" />
                                         <div class="col-md-10">
-                                            <input type="file" name="fileUpload" Required="required" />
+                                            <input type="file" name="fileUpload" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +69,10 @@
                                         @Html.EditorFor(model => model.statusProduct, new { htmlAttributes = new { @class = "form-check-input", @type = "checkbox", @id = "flexSwitchCheckDefault" } })
                                     </div>
                                 </div>
-
+                                <div>
+                                    Khuyến mãi
+                                    @Html.DropDownList("EditSALE")
+                                </div>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <a class="btn btn-dark" href="/Admin/QLProduct/QLProduct"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
                                     <input type="submit" value="Chỉnh sửa sản phẩm" class="btn btn-success m-3" />

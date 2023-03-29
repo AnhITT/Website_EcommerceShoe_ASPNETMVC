@@ -36,12 +36,14 @@
                     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" id="topbar-userdrop" href="#" role="button" aria-haspopup="true"
                        aria-expanded="false">
                         <span class="account-user-avatar">
-                            <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="user-image" class="rounded-circle">
+                            <img src="~/Content/Image/Avatar/avatar-default.png" alt="user-image" class="rounded-circle">
                         </span>
                         <span>
                             <span class="account-user-name">
+                                @User.Identity.Name
                             </span>
                             <span class="account-position">
+                               Admin
                             </span>
                         </span>
                     </a>
@@ -100,7 +102,7 @@
 
                 <div class="leftbar-user">
                     <a href="/Admin/Admin/InfoAdmin">
-                        <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <img src="~/Content/Image/Avatar/avatar-default.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name">
                             @User.Identity.Name
                         </span>
@@ -161,7 +163,7 @@
                         </div>
                     </li>
                     <li class="side-nav-item">
-                        <a href="/Admin/QLSale/QLSale" class="side-nav-link">
+                        <a href="/Admin/QLProduct/QLProductSale" class="side-nav-link">
                             <i class="uil-dollar-sign-alt"></i>
                             <span> Quản lý sale </span>
                         </a>

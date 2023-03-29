@@ -40,6 +40,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             ViewBag.Titlee = "Thêm mới sản phẩm";
             ViewBag.idCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar");
             ViewBag.idBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand");
+            ViewBag.idSALE = new SelectList(data.ProductSales.ToList().OrderBy(n => n.idPS), "idPS", "namePS");
             return View();
         }
         [HttpPost]
@@ -48,6 +49,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
         {
             ViewBag.idCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar");
             ViewBag.idBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand");
+            ViewBag.idSALE = new SelectList(data.ProductSales.ToList().OrderBy(n => n.idPS), "idPS", "namePS");
             if (fileupload != null && fileupload.ContentLength > 0)
             {
                 //lấy tên file được tải lên từ form upload và lưu vào biến fileName.
@@ -77,15 +79,19 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
             ViewBag.Titlee = "Chỉnh sửa sản phẩm";
             ViewBag.EditCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar", product.idCar);
             ViewBag.EditBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand", product.idBrand);
+            ViewBag.EditSALE = new SelectList(data.ProductSales.ToList().OrderBy(n => n.idPS), "idPS", "namePS", product.idPSale);
+
             return View(product);
         }
         
         [HttpPost, ActionName("EditProduct")]
-        public ActionResult SaveProduct(int id, HttpPostedFileBase fileUpload)
+        public ActionResult SaveProduct(int id, HttpPostedFileBase fileUpload, FormCollection collection)
         {
             var product = data.Products.Find(id);
-            ViewBag.EditCAR = new SelectList(data.Categories.ToList().OrderBy(n => n.idCar), "idCar", "nameCar", product.idCar);
-            ViewBag.EditBR = new SelectList(data.Brands.ToList().OrderBy(n => n.idBrand), "idBrand", "nameBrand", product.idBrand);
+            
+            var EditCAR = collection["EditCAR"];
+            var EditBR = collection["EditBR"];
+            var EditSALE = collection["EditSALE"];
             if (fileUpload != null && fileUpload.ContentLength > 0)
             {
                 //lấy tên file được tải lên từ form upload và lưu vào biến fileName.
@@ -97,11 +103,13 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
                 //Lưu file
                 fileUpload.SaveAs(path);
                 product.UrlImgCover = fileName;
-                UpdateModel(product);
-                data.SaveChanges();
-                return RedirectToAction("QLProduct");
             }
-            return View(product);
+            product.idCar = int.Parse(EditCAR);
+            product.idBrand = int.Parse(EditBR);
+            product.idPSale = int.Parse(EditSALE);
+            UpdateModel(product);
+            data.SaveChanges();
+            return RedirectToAction("QLProduct");
         }
 
         [HttpPost]
@@ -146,6 +154,95 @@ namespace Website_EcommerceShoe_ASPNETMVC.Areas.Admin.Controllers
                 return Json(new { success = true });
             }
             return Json(new { success = false });
+        }
+
+
+        public ActionResult QLProductSale(int? page)
+        {
+            ViewBag.Titlee = "Quản lý sản phẩm sale";
+            if (page == null) page = 1;
+            int pageSize = 10;
+            int pageNum = page ?? 1;
+            var item = data.ProductSales.ToList();
+            foreach(var i in item)
+            {
+                if(i.quantityPS == 0)
+                {
+                    var sp = data.Products.Where(n => n.idPSale == i.idPS).ToList();
+                    foreach(var p in sp)
+                    {
+                        p.idPSale = null;
+                    }
+                    data.ProductSales.Remove(i);
+                    data.SaveChanges();
+                }
+            }
+            return View(data.ProductSales.ToList().ToPagedList(pageNum, pageSize));
+        }
+        public ActionResult AddProductSale()
+        {
+            ViewBag.Titlee = "Thêm danh mục sản phẩm sale";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddProductSale(ProductSale sp)
+        {
+            if (ModelState.IsValid)
+            {
+                data.ProductSales.Add(sp);
+                data.SaveChanges();
+                return RedirectToAction("QLProductSale");
+            }
+            return RedirectToAction("QLProductSale");
+        }
+        [HttpPost]
+        public ActionResult DeleteProductSale(int id)
+        {
+            var item = data.ProductSales.Find(id);
+            if (item != null)
+            {
+                data.ProductSales.Remove(item);
+                data.SaveChanges();
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
+        }
+
+        public ActionResult ListSale(int? page, int id)
+        {
+            ViewBag.Titlee = "Danh sách sản phẩm sale";
+            int pageNumber = (page ?? 1);
+            int pageSize = 10;
+
+            return View(data.Products.ToList().OrderBy(n => n.idProduct).Where(n => n.idPSale == id).ToPagedList(pageNumber, pageSize));
+        }
+        [HttpGet]
+        public ActionResult EditSale(int id)
+        {
+            var km = data.ProductSales.Find(id);
+            if (km == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            ViewBag.Titlee = "Chỉnh sửa khuyến mãi";
+
+            return View(km);
+        }
+        [HttpPost, ActionName("EditSale")]
+        [ValidateInput(false)]
+        public ActionResult SaveSale(int id)
+        {
+            var km = data.ProductSales.Find(id);
+            if (km == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            UpdateModel(km);
+            data.SaveChanges();
+            return RedirectToAction("QLProductSale");
         }
     }
 }

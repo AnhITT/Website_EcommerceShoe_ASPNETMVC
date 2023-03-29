@@ -37,6 +37,28 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             
             return item;
         }
+        public void CheckProductSale()
+        {
+            foreach (var item in data.Products.ToList())
+            {
+                if (item.idPSale != null)
+                {
+                    var KM = data.ProductSales.Where(x => x.idPS == item.idPSale).FirstOrDefault();
+                    if (DateTime.Now >= KM.dateStartSale && DateTime.Now <= KM.dateEndSale && KM.quantityPS > 0)
+                    {
+                        if (KM.priceSalePS != null)
+                        {
+                            ViewData[item.nameProduct] = item.priceProduct - KM.priceSalePS;
+                        }
+                        else
+                        {
+
+                            ViewData[item.nameProduct] = item.priceProduct - ((item.priceProduct * KM.salePSPhanTram) / 100);
+                        }
+                    }
+                }
+            }
+        }
         public ActionResult Index(int? page, string search)
         {
             var sp = from l in data.Products select l;
@@ -49,6 +71,8 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 20;
             int pageNum = page ?? 1;
+
+            CheckProductSale();
             return View(sp.Where(n => n.statusProduct == true).ToList().ToPagedList(pageNum, pageSize));
         }
 
@@ -64,6 +88,14 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
                     count = 1;
                 }
             }
+            if(item != null)
+            {
+                data.Products.Attach(item);
+                item.ViewCount = item.ViewCount + 1;
+                data.Entry(item).Property(x => x.ViewCount).IsModified = true;
+                data.SaveChanges();
+            }
+            CheckProductSale();
             ViewBag.count = count;
             IList<Product> itemsLQ = GetProductCartegory((int)item.idCar);
             IList<ImagesProduct> itemsIMG = GetProductImage(id);
@@ -80,6 +112,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Category.nameCar == "Men" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -88,6 +121,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Category.nameCar == "Women" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -96,6 +130,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Category.nameCar == "Kids" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -105,6 +140,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Category.nameCar == "Men" || n.Category.nameCar == "Women").OrderBy(n => n.idProduct);
             return View(products.Where(n => n.statusProduct == true).ToPagedList(pageNum, pageSize));
         }
@@ -113,6 +149,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Brand.nameBrand == "Nike" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -121,6 +158,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Brand.nameBrand == "Adidas" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -129,6 +167,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Brand.nameBrand == "Biti's" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -137,6 +176,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Brand.nameBrand == "Vans" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -145,6 +185,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Brand.nameBrand == "Converse" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
         }
@@ -153,8 +194,37 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             if (page == null) page = 1;
             int pageSize = 10;
             int pageNum = page ?? 1;
+            CheckProductSale();
             var products = data.Products.Where(n => n.Brand.nameBrand == "Jodan" && n.statusProduct == true).OrderBy(n => n.idProduct);
             return View(products.ToPagedList(pageNum, pageSize));
+        }
+        public ActionResult Sale(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 20;
+            var sale = data.Products.ToList();
+            List<Product> saleChecked = new List<Product>();
+            foreach (var item in sale)
+            {
+                if (item.idPSale != null)
+                {
+                    saleChecked.Add(item);
+                    var KM = data.ProductSales.Where(x => x.idPS == item.idPSale).FirstOrDefault();
+                    if (DateTime.Now >= KM.dateStartSale && DateTime.Now <= KM.dateEndSale && KM.quantityPS > 0)
+                    {
+                        if (KM.priceSalePS != null)
+                        {
+                            ViewData[item.nameProduct] = item.priceProduct - KM.priceSalePS;
+                        }
+                        else
+                        {
+
+                            ViewData[item.nameProduct] = item.priceProduct - ((item.priceProduct * KM.salePSPhanTram) / 100);
+                        }
+                    }
+                }
+            }
+            return View(saleChecked.ToPagedList(pageNumber, pageSize));
         }
     }
 }

@@ -7,6 +7,7 @@
     var phone = "";
     var address = "";
     var bithday = "";
+    var avatar = "";
     var user = ViewBag.User;
     if (user != null)
     {
@@ -14,6 +15,7 @@
         email = user.Email;
         phone = user.PhoneNumber;
         address = user.Address;
+        avatar = user.Avartar;
         bithday = user.Birthday.ToString();
     }
 }
@@ -21,15 +23,17 @@
 <div class="tab-pane fade profile-edit" id="profile-edit">
     <!-- Profile Edit Form -->
     <form>
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("EditInformationUser", "User", FormMethod.Post, new { @enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
             <div class="row mb-3">
                 <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                 <div class="col-md-8 col-lg-9">
-                    <img src="http://cdn.onlinewebfonts.com/svg/img_81837.png" alt="Profile">
-                    
+                    <img src="@Url.Content("~/Content/Image/Avatar/"+  avatar)" alt="Profile">
+                    <div class="col-md-10">
+                        <input type="file" name="fileUpload" Required="required" />
+                    </div>
                 </div>
             </div>
 

@@ -59,8 +59,16 @@
         <!-- Product name-->
         <div class="col-lg-6 pb-5">
             <h3 class="font-weight-semi-bold">@Model.nameProduct</h3>
-
-            <h3 class="font-weight-semi-bold mb-4">$@String.Format("{0:0}", Model.priceProduct)</h3>
+            <p>View: @Model.ViewCount</p>
+            @if (Model.idPSale == null)
+            {
+                <h3 class="font-weight-semi-bold mb-4">$@String.Format("{0:0}", Model.priceProduct)</h3>
+            }
+            else
+            {
+                <h3 class="font-weight-semi-bold mb-4">$@String.Format("{0:0}", ViewData[Model.nameProduct])  <del class="text-muted">$@String.Format("{0:0}", Model.priceProduct)</del></h3>
+                
+            }
             <p class="mb-4">@Downline(Model.descriptionProduct)</p>
             @Html.Partial("SizeProduct")
 

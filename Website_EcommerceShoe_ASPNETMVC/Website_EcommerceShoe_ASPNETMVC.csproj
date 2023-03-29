@@ -251,93 +251,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303152119332_createdb.cs" />
-    <Compile Include="Migrations\202303152119332_createdb.designer.cs">
-      <DependentUpon>202303152119332_createdb.cs</DependentUpon>
+    <Compile Include="Migrations\202303291023315_update.cs" />
+    <Compile Include="Migrations\202303291023315_update.designer.cs">
+      <DependentUpon>202303291023315_update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303170844308_ups.cs" />
-    <Compile Include="Migrations\202303170844308_ups.designer.cs">
-      <DependentUpon>202303170844308_ups.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303181939018_c.cs" />
-    <Compile Include="Migrations\202303181939018_c.designer.cs">
-      <DependentUpon>202303181939018_c.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303181956365_cx.cs" />
-    <Compile Include="Migrations\202303181956365_cx.designer.cs">
-      <DependentUpon>202303181956365_cx.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303182019491_sssd.cs" />
-    <Compile Include="Migrations\202303182019491_sssd.designer.cs">
-      <DependentUpon>202303182019491_sssd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303182059323_sssda.cs" />
-    <Compile Include="Migrations\202303182059323_sssda.designer.cs">
-      <DependentUpon>202303182059323_sssda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303182208451_sssdaxxss.cs" />
-    <Compile Include="Migrations\202303182208451_sssdaxxss.designer.cs">
-      <DependentUpon>202303182208451_sssdaxxss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303182235267_sssdaxxssssccccc.cs" />
-    <Compile Include="Migrations\202303182235267_sssdaxxssssccccc.designer.cs">
-      <DependentUpon>202303182235267_sssdaxxssssccccc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303200832119_sssss.cs" />
-    <Compile Include="Migrations\202303200832119_sssss.designer.cs">
-      <DependentUpon>202303200832119_sssss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303200858558_ssssss.cs" />
-    <Compile Include="Migrations\202303200858558_ssssss.designer.cs">
-      <DependentUpon>202303200858558_ssssss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303200919366_sssssss.cs" />
-    <Compile Include="Migrations\202303200919366_sssssss.designer.cs">
-      <DependentUpon>202303200919366_sssssss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303201441304_l.cs" />
-    <Compile Include="Migrations\202303201441304_l.designer.cs">
-      <DependentUpon>202303201441304_l.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303201539246_ls.cs" />
-    <Compile Include="Migrations\202303201539246_ls.designer.cs">
-      <DependentUpon>202303201539246_ls.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303221048111_size.cs" />
-    <Compile Include="Migrations\202303221048111_size.designer.cs">
-      <DependentUpon>202303221048111_size.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303230655245_b.cs" />
-    <Compile Include="Migrations\202303230655245_b.designer.cs">
-      <DependentUpon>202303230655245_b.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303240910566_updateTK.cs" />
-    <Compile Include="Migrations\202303240910566_updateTK.designer.cs">
-      <DependentUpon>202303240910566_updateTK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303241032132_zzzzzzzz.cs" />
-    <Compile Include="Migrations\202303241032132_zzzzzzzz.designer.cs">
-      <DependentUpon>202303241032132_zzzzzzzz.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303241037186_zzzzzzzzz.cs" />
-    <Compile Include="Migrations\202303241037186_zzzzzzzzz.designer.cs">
-      <DependentUpon>202303241037186_zzzzzzzzz.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303241413559_szcx.cs" />
-    <Compile Include="Migrations\202303241413559_szcx.designer.cs">
-      <DependentUpon>202303241413559_szcx.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303251530414_das.cs" />
-    <Compile Include="Migrations\202303251530414_das.designer.cs">
-      <DependentUpon>202303251530414_das.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303251612468_dasss.cs" />
-    <Compile Include="Migrations\202303251612468_dasss.designer.cs">
-      <DependentUpon>202303251612468_dasss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303271454498_updateOrder.cs" />
-    <Compile Include="Migrations\202303271454498_updateOrder.designer.cs">
-      <DependentUpon>202303271454498_updateOrder.cs</DependentUpon>
+    <Compile Include="Migrations\202303291040502_updates.cs" />
+    <Compile Include="Migrations\202303291040502_updates.designer.cs">
+      <DependentUpon>202303291040502_updates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -598,6 +518,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\faviconn.ico" />
+    <Content Include="Content\Image\Avatar\avatar-default.png" />
     <Content Include="Content\Image\background-login.jpg" />
     <Content Include="Content\Image\Background\0139937c2f641ab61fd020844ccfd459.png" />
     <Content Include="Content\Image\Background\1-DrMR2bKc5NsKhOkGKqofOw.png" />
@@ -695,9 +616,12 @@
     <Content Include="Areas\Admin\Views\QLProduct\AddSize.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\ListBrand.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\EditProduct.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\QLOrder\QLOrder.cshtml" />
     <Content Include="Areas\Admin\Views\QLOrder\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\QLProduct\AddProductSale.cshtml" />
+    <Content Include="Areas\Admin\Views\QLProduct\QLProductSale.cshtml" />
+    <Content Include="Areas\Admin\Views\QLProduct\ListSale.cshtml" />
+    <Content Include="Areas\Admin\Views\QLProduct\EditSale.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CartJs.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -838,6 +762,7 @@
     <Content Include="Views\User\QLOrder.cshtml" />
     <Content Include="Views\User\Detail.cshtml" />
     <Content Include="Views\User\CancelOrder.cshtml" />
+    <Content Include="Views\Product\Sale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -880,71 +805,11 @@
     <TypeScriptCompile Include="tinymce_6.3.2\tinymce\js\tinymce\tinymce.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202303152119332_createdb.resx">
-      <DependentUpon>202303152119332_createdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202303291023315_update.resx">
+      <DependentUpon>202303291023315_update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303170844308_ups.resx">
-      <DependentUpon>202303170844308_ups.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303181939018_c.resx">
-      <DependentUpon>202303181939018_c.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303181956365_cx.resx">
-      <DependentUpon>202303181956365_cx.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303182019491_sssd.resx">
-      <DependentUpon>202303182019491_sssd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303182059323_sssda.resx">
-      <DependentUpon>202303182059323_sssda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303182208451_sssdaxxss.resx">
-      <DependentUpon>202303182208451_sssdaxxss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303182235267_sssdaxxssssccccc.resx">
-      <DependentUpon>202303182235267_sssdaxxssssccccc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303200832119_sssss.resx">
-      <DependentUpon>202303200832119_sssss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303200858558_ssssss.resx">
-      <DependentUpon>202303200858558_ssssss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303200919366_sssssss.resx">
-      <DependentUpon>202303200919366_sssssss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303201441304_l.resx">
-      <DependentUpon>202303201441304_l.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303201539246_ls.resx">
-      <DependentUpon>202303201539246_ls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303221048111_size.resx">
-      <DependentUpon>202303221048111_size.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303230655245_b.resx">
-      <DependentUpon>202303230655245_b.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303240910566_updateTK.resx">
-      <DependentUpon>202303240910566_updateTK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303241032132_zzzzzzzz.resx">
-      <DependentUpon>202303241032132_zzzzzzzz.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303241037186_zzzzzzzzz.resx">
-      <DependentUpon>202303241037186_zzzzzzzzz.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303241413559_szcx.resx">
-      <DependentUpon>202303241413559_szcx.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303251530414_das.resx">
-      <DependentUpon>202303251530414_das.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303251612468_dasss.resx">
-      <DependentUpon>202303251612468_dasss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303271454498_updateOrder.resx">
-      <DependentUpon>202303271454498_updateOrder.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202303291040502_updates.resx">
+      <DependentUpon>202303291040502_updates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

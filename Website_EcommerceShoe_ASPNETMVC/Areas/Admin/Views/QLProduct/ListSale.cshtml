@@ -1,0 +1,96 @@
+﻿
+@using PagedList.Mvc;
+@model PagedList.PagedList<Website_EcommerceShoe_ASPNETMVC.Models.EF.Product>
+
+@{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item h5"><a href="/Admin/QLProduct/QLProductSale"> <i class="uil-dollar-sign-alt"></i> Quản lý sale</a></li>
+            <li class="breadcrumb-item h5">Danh sách sản phẩm sale</li>
+        </ol>
+    </nav>
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Danh sách sản phẩm</h2>
+            <div class="card-tools">
+                <a href="/Admin/QLProduct/AddProduct" class="btn btn-success">Thêm sản phẩm</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Danh mục</th>
+                        <th>Thương hiệu</th>
+                        <th>Sản phẩm</th>
+                        <th>Ảnh </th>
+                        <th>Giá bán</th>
+                        <th>Tình trạng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <tr id="trow_@item.idProduct">
+                                <td>@item.Category.nameCar</td>
+                                <td>@item.Brand.nameBrand</td>
+                                <td>@item.nameProduct</td>
+
+
+                                <td>
+                                    <img style="width:100px; height: 100px" src="~/Content/Image/Product/@item.UrlImgCover" />
+                                </td>
+
+                                <td>$@String.Format("{0:0}", item.priceProduct)</td>
+                                <td>
+                                    @if (item.statusProduct == true)
+                                    {
+                                        <span class="badge bg-success">Đang bán</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Chưa bán</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Admin/ImageProduct/Index/@item.idProduct" class="btn btn-sm btn-success"><i class="fa-solid fa-image"></i></a>
+                                    <a href="/Admin/QLProduct/AddSize/@item.idProduct" class="btn btn-sm btn-primary"><i class="fa-solid fa-shoe-prints"></i></a>
+                                    <a href="/Admin/QLProduct/EditProduct/@item.idProduct" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-id="@item.idProduct" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">Không có sản phẩm nào!!!</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</section>
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("QLProductSale", new { page = page }), new PagedListRenderOptions { LiElementClasses = new string[] { "page-item btn btn-sm btn-primary mx-1" } })
+</div>
+
+<style>
+    .page-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>

@@ -162,8 +162,15 @@
                                 <div class="card-body border-top border-dark text-center p-0 pt-4 pb-3 text-dark">
                                     <h6 class="text-truncate">@product.nameProduct</h6>
                                     <div class="d-flex justify-content-center pt-2">
-                                        <h6>$@String.Format("{0:0}", product.priceProduct)</h6>
-                                        <h6 class="text-muted ml-2"><del></del></h6>
+                                        @if (product.idPSale == null)
+                                        {
+                                            <h6>$@String.Format("{0:0}", product.priceProduct)</h6>
+                                        }
+                                        else
+                                        {
+                                            <h6>$@String.Format("{0:0}", ViewData[product.nameProduct])</h6>
+                                            <h6 class="text-muted ml-2"><del>$@String.Format("{0:0}", product.priceProduct)</del></h6>
+                                        }
                                     </div>
                                 </div>
                             </a>

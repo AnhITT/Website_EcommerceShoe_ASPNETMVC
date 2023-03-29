@@ -126,9 +126,29 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
                     Quantity = quantity,
                     Size = size
                 };
+                if (checkProduct.IdSale != null)
+                {
+                    var KM = data.ProductSales.Where(x => x.idPS == checkProduct.idPSale).FirstOrDefault();
+                    if (DateTime.Now >= KM.dateStartSale && DateTime.Now <= KM.dateEndSale && KM.quantityPS > 0)
+                    {
+                        if (KM.priceSalePS != null)
+                        {
+                            item.Price = (decimal)(checkProduct.priceProduct - KM.priceSalePS);
+                            item.TotalPrice = item.Quantity * item.Price;
+                        }
+                        else
+                        {
+                            item.Price = (decimal)(checkProduct.priceProduct - ((checkProduct.priceProduct * KM.salePSPhanTram) / 100));
+                            item.TotalPrice = item.Quantity * item.Price;
+                        }
+                    }
+                }
+                else
+                {
+                    item.Price = checkProduct.priceProduct;
+                    item.TotalPrice = item.Quantity * item.Price;
+                }
                 item.ProductImg = checkProduct.UrlImgCover;
-                item.Price = checkProduct.priceProduct;
-                item.TotalPrice = item.Quantity * item.Price;
                 cart.AddToCart(item, size, quantity);
                 Session["Cart"] = cart;
                 code = new { Success = true, msg = "Product added to cart successfully!", code = 1, Count = cart.Items.Count };

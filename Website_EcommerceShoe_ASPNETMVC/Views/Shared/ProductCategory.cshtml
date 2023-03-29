@@ -14,7 +14,15 @@
                 <div class="card-body text-dark border-top border-dark text-center p-0 pt-4 pb-3">
                     <h6 class="text-truncate mb-3">@item.nameProduct</h6>
                     <div class="d-flex justify-content-center">
-                        <h6>$@String.Format("{0:0}", item.priceProduct)</h6><h6 class="text-muted ml-2"></h6>
+                        @if (item.idPSale == null)
+                        {
+                            <h6>$@String.Format("{0:0}", item.priceProduct)</h6>
+                        }
+                        else
+                        {
+                            <h6>$@String.Format("{0:0}", ViewData[item.nameProduct])</h6>
+                            <h6 class="text-muted ml-2"><del>$@String.Format("{0:0}", item.priceProduct)</del></h6>
+                        }
                     </div>
                 </div>
             </a>

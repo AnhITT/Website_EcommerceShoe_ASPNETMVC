@@ -25,151 +25,136 @@
         <!-- end page title -->
 
         <div class="row">
-            <div class="col-xl-5 col-lg-6">
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card widget-flat">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-arrow-bottom-right-thin-circle-outline widget-icon text-bg-warning text-bg-warning"></i>
-                                </div>
-                                <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Tổng số sản phẩm</h5>
-                                <h3 class="mt-3 mb-3"> @ViewBag.countProduct</h3>
-                                <p class="mb-0 text-muted">
-
-                                </p>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-
-                    <div class="col-lg-6">
-                        <div class="card widget-flat">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-cart-plus widget-icon text-bg-warning text-bg-warning"></i>
-                                </div>
-                                <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Sản phẩm đã bán</h5>
-                                <h3 class="mt-3 mb-3">@ViewBag.toTalOrders</h3>
-                                <p class="mb-0 text-muted">
-
-                                </p>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-
-
-                </div> <!-- end row -->
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card widget-flat">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-alert-octagon-outline widget-icon text-bg-warning text-bg-warning"></i>
-                                </div>
-                                <h5 class="text-muted fw-normal mt-0" title="Number of Products DeAct">Sản phẩm đang dừng</h5>
-                                <h3 class="mt-3 mb-3">@ViewBag.toTalProductsDeAct</h3>
-                                <p class="mb-0 text-muted">
-
-                                </p>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                    
-                    <div class="col-lg-6">
-                        <div class="card widget-flat">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-account-multiple widget-icon"></i>
-                                </div>
-                                <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Tài khoản admin</h5>
-                                <h3 class="mt-3 mb-3">@ViewBag.toTalAdmins</h3>
-                                <p class="mb-0 text-muted">
-
-                                </p>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card widget-flat">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-account-cash widget-icon"></i>
-                                </div>
-                                <h5 class="text-muted fw-normal mt-0" title="Number of Products Activate">Sản phẩm đang bán</h5>
-                                <h3 class="mt-3 mb-3">@ViewBag.toTalProductsActivate</h3>
-                                <p class="mb-0 text-muted">
-
-                                </p>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-
-                    <div class="col-lg-6">
-                        <div class="card widget-flat">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <i class="mdi mdi-account-multiple widget-icon"></i>
-                                </div>
-                                <h5 class="text-muted fw-normal mt-0" title="Number of Customers">Tổng số hoá đơn</h5>
-                                <h3 class="mt-3 mb-3">@ViewBag.toTalHoaDon</h3>
-                                <p class="mb-0 text-muted">
-
-                                </p>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-
-
-                </div> <!-- end row -->
-
-
-
-
-
-            </div> <!-- End Content -->
-            <!-- content-page -->
-            <div class="col-xl-5 col-lg-6">
+            <div class="col-4">
                 <div class="card widget-flat">
                     <div class="card-body">
                         <div class="float-end">
-                            <i class="mdi mdi-currency-usd widget-icon text-bg-warning text-bg-warning"></i>
+                            <i class="mdi mdi-arrow-bottom-right-thin-circle-outline widget-icon text-bg-warning text-bg-warning"></i>
                         </div>
-                        <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Lợi nhuận</h5>
+                        <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Tổng số sản phẩm</h5>
+                        <h3 class="mt-3 mb-3"> @ViewBag.countProduct</h3>
                         <p class="mb-0 text-muted">
 
                         </p>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
+            </div>
+            <div class="col-4">
                 <div class="card widget-flat">
                     <div class="card-body">
                         <div class="float-end">
                             <i class="mdi mdi-alert-octagon-outline widget-icon text-bg-warning text-bg-warning"></i>
-
                         </div>
-                        <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Sản phẩm hết hàng</h5>
-                        <h3 class="mt-3 mb-3"> @ViewBag.toTalOutStock</h3>
+                        <h5 class="text-muted fw-normal mt-0" title="Number of Products DeAct">Sản phẩm đang dừng</h5>
+                        <h3 class="mt-3 mb-3">@ViewBag.toTalProductsDeAct</h3>
                         <p class="mb-0 text-muted">
 
                         </p>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
+            </div>
+            <div class="col-4">
                 <div class="card widget-flat">
                     <div class="card-body">
                         <div class="float-end">
-                            <i class="mdi mdi-account-multiple widget-icon"></i>
+                            <i class="mdi mdi-account-cash widget-icon"></i>
                         </div>
-                        <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Tài khoản khách hàng</h5>
-                        <h3 class="mt-4 mb-3"> @ViewBag.toTalUsers</h3>
+                        <h5 class="text-muted fw-normal mt-0" title="Number of Products Activate">Sản phẩm đang bán</h5>
+                        <h3 class="mt-3 mb-3">@ViewBag.toTalProductsActivate</h3>
                         <p class="mb-0 text-muted">
 
                         </p>
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
-            </div> <!-- end col -->
-        </div> <!-- end wrapper-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card widget-flat">
+                        <div class="card-body">
+                            <div class="float-end">
+                                <i class="mdi mdi-account-cash widget-icon"></i>
+                            </div>
+                            <h5 class="text-muted fw-normal mt-0" title="Number of Products Activate">Tổng số đơn hàng</h5>
+                            <h3 class="mt-3 mb-3">@ViewBag.totalOrder</h3>
+                            <p class="mb-0 text-muted">
+
+                            </p>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+                <div class="col-4">
+                    <div class="card widget-flat">
+                        <div class="card-body">
+                            <div class="float-end">
+                                <i class="mdi mdi-alert-octagon-outline widget-icon text-bg-warning text-bg-warning"></i>
+                            </div>
+                            <h5 class="text-muted fw-normal mt-0" title="Number of Products DeAct">Sản phẩm đang dừng</h5>
+                            <h3 class="mt-3 mb-3">@ViewBag.toTalProductsDeAct</h3>
+                            <p class="mb-0 text-muted">
+
+                            </p>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+                <div class="col-4">
+                    <div class="card widget-flat">
+                        <div class="card-body">
+                            <div class="float-end">
+                                <i class="mdi mdi-currency-usd widget-icon text-bg-warning text-bg-warning"></i>
+                            </div>
+                            <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Doanh thu</h5>
+                            <h3 class="mt-3 mb-3">$@String.Format("{0:0}", @ViewBag.totalLoiNhuan)</h3>
+                            <p class="mb-0 text-muted">
+                            </p>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card widget-flat">
+                        <div class="card-body">
+                            <div class="float-end">
+                                <i class="mdi mdi-account-multiple widget-icon"></i>
+                            </div>
+                            <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Số lượng tài khoản</h5>
+                            <h3 class="mt-3 mb-3"> @ViewBag.toTalAccount</h3>
+                            <p class="mb-0 text-muted">
+                            </p>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+                <div class="col-4">
+                    <div class="card widget-flat">
+                        <div class="card-body">
+                            <div class="float-end">
+                                <i class="mdi mdi-alert-octagon-outline widget-icon text-bg-warning text-bg-warning"></i>
+                            </div>
+                            <h5 class="text-muted fw-normal mt-0" title="Number of Products DeAct">Sản phẩm bán chạy nhất</h5>
+                            <h3 class="mt-3 mb-3">@ViewBag.SPBanNhieuNhat - @ViewBag.slSP</h3>
+                            <p class="mb-0 text-muted">
+
+                            </p>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+                <div class="col-4">
+                    <div class="card widget-flat">
+                        <div class="card-body">
+                            <div class="float-end">
+                                <i class="mdi mdi-account-cash widget-icon"></i>
+                            </div>
+                            <h5 class="text-muted fw-normal mt-0" title="Number of Products Activate">Sản phẩm có lượt xem nhiều nhất</h5>
+                            <h3 class="mt-3 mb-3">@ViewBag.maxProductView - @ViewBag.maxProduct</h3>
+                            <p class="mb-0 text-muted">
+
+                            </p>
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div>
+            </div>
+
+        </div>
     </div>
 
