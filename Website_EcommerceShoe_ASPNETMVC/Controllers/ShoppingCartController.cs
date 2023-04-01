@@ -8,6 +8,8 @@ using Website_EcommerceShoe_ASPNETMVC.Models.EF;
 using Website_EcommerceShoe_ASPNETMVC.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Information;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 
 namespace Website_EcommerceShoe_ASPNETMVC.Controllers
 {
@@ -63,10 +65,90 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             order.DateOrder = DateTime.Now;
             data.Orders.Add(order);
             data.SaveChanges();
+            var strSanPham = "";
+            var thanhtien = decimal.Zero;
+            var TongTien = decimal.Zero;
+            foreach (var sp in cart.Items)
+            {
+                strSanPham += "<tr>";
+                strSanPham += "<td>" + sp.ProductName + "</td>";
+                strSanPham += "<td>" + sp.Quantity + "</td>";
+                strSanPham += "<td>" + String.Format("{0:0}", sp.TotalPrice) + " <span> $</span></td>";
+                strSanPham += "</tr>";
+                thanhtien += sp.Price * sp.Quantity;
+            }
+            TongTien = thanhtien;
+            string contentCustomer = System.IO.File.ReadAllText(Server.MapPath("~/Content/Mail/SendMail.html"));
+            contentCustomer = contentCustomer.Replace("{{MaDon}}", order.Code);
+            contentCustomer = contentCustomer.Replace("{{SanPham}}", strSanPham);
+            contentCustomer = contentCustomer.Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"));
+            contentCustomer = contentCustomer.Replace("{{TenKhachHang}}", order.NameCustomer);
+            contentCustomer = contentCustomer.Replace("{{Phone}}", order.Phone);
+            contentCustomer = contentCustomer.Replace("{{Email}}", order.Email);
+            contentCustomer = contentCustomer.Replace("{{DiaChiNhanHang}}", order.Address);
+            contentCustomer = contentCustomer.Replace("{{ThanhTien}}", String.Format("{0:0}", thanhtien));
+            contentCustomer = contentCustomer.Replace("{{TongTien}}", String.Format("{0:0}", TongTien));
+            Website_EcommerceShoe_ASPNETMVC.Common.Common.SendMail("TANA", "Confirm Order #" + order.Code, contentCustomer.ToString(), order.Email);
+            
             Session["Cart"] = null;
             return RedirectToAction("CheckOutSuccess");
-
         }
+        /*
+        public ActionResult CheckVoucher(Order order, string i)
+        {
+            ShoppingCart cart = (ShoppingCart)Session["Cart"];
+            if (cart == null)
+                return RedirectToAction("ErrorCart", "ShoppingCart");
+            int a;
+            bool isNumber = int.TryParse(i, out a);
+            if (isNumber)
+            {
+                var checkVoucher = data.Vouchers.Where(n => n.idVoucher == a).FirstOrDefault();
+                if (checkVoucher != null)
+                {
+                    if (DateTime.Now >= checkVoucher.dateStartVoucher && DateTime.Now <= checkVoucher.dateEndVoucher)
+                    {
+                        if (checkVoucher.quantityVoucher > 0)
+                        {
+                            ViewData["Success"] = "Xác nhận sử dụng voucher thành công!";
+                            var total = cart.Items.Sum(x => (x.Price * x.Quantity));
+                            order.TotalAmount = total - checkVoucher.priceVoucher;
+                            return RedirectToAction("CheckOut", "ShoppingCart");
+                        }
+                        else
+                        {
+                            ViewData["ErrorQuantity"] = "Voucher đã hết lượt sử dụng!";
+                            order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+                            return RedirectToAction("CheckOut", "ShoppingCart");
+
+                        }
+                    }
+                    else
+                    {
+                        ViewData["ErrorDate"] = "Voucher đã hết hạn!";
+                        order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+                        return RedirectToAction("CheckOut", "ShoppingCart");
+
+                    }
+                }
+                else
+                {
+                    ViewData["ErrorNull"] = "Voucher không chính xác!";
+                    order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+                    return RedirectToAction("CheckOut", "ShoppingCart");
+
+                }
+            }
+            else
+            {
+                ViewData["ErrorNull"] = "Voucher không chính xác!";
+                order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+                return RedirectToAction("CheckOut", "ShoppingCart");
+            }
+            
+     }
+           */
+
         public ActionResult CheckOutSuccess(Order order)
         {
             return View(order);
@@ -126,7 +208,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
                     Quantity = quantity,
                     Size = size
                 };
-                if (checkProduct.IdSale != null)
+                if (checkProduct.idPSale != null)
                 {
                     var KM = data.ProductSales.Where(x => x.idPS == checkProduct.idPSale).FirstOrDefault();
                     if (DateTime.Now >= KM.dateStartSale && DateTime.Now <= KM.dateEndSale && KM.quantityPS > 0)

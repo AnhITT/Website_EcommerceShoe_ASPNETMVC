@@ -69,7 +69,7 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
                 sp = sp.Where(s => s.nameProduct.ToLower().Contains(search));
             }
             if (page == null) page = 1;
-            int pageSize = 20;
+            int pageSize = 21;
             int pageNum = page ?? 1;
 
             CheckProductSale();

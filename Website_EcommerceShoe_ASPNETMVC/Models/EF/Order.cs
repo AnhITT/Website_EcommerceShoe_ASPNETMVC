@@ -27,6 +27,8 @@ namespace Website_EcommerceShoe_ASPNETMVC.Models.EF
 
         public decimal TotalAmount { get; set; }
         public int TypePayment { get; set; }
+        public int? idVoucher { get; set; }
+        public Voucher Voucher { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 

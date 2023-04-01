@@ -37,12 +37,17 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
             GetInfomationUser();
             return View();
         }
+
         [HttpPost]
-        public ActionResult EditInformationUser(HttpPostedFileBase fileupload)
+        public ActionResult EditInformationUser(HttpPostedFileBase fileupload, FormCollection collection)
         {
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            if (ModelState.IsValid)
-            {
+            var name = collection["name"];
+            var bithday = collection["bithday"];
+            var phone = collection["phone"];
+            var email = collection["email"];
+            var address = collection["address"];
+            var avatar = collection["fileUpload"];
                 if (fileupload != null && fileupload.ContentLength > 0)
                 {
                     //lấy tên file được tải lên từ form upload và lưu vào biến fileName.
@@ -53,13 +58,17 @@ namespace Website_EcommerceShoe_ASPNETMVC.Controllers
 
                     //Lưu file
                     fileupload.SaveAs(path);
-                    user.Avartar = fileName;
-                    UpdateModel(user);
-                    data.SaveChanges();
-                    return RedirectToAction("QLInformation");
+                    avatar = fileName;
                 }
-            }
-            return View(user);
+                user.Name = name;
+                user.Email = email;
+                user.Address = address;
+                user.Birthday = DateTime.Parse(bithday);
+                user.PhoneNumber = phone;
+                user.Avartar = avatar;
+                UpdateModel(user);
+                data.SaveChanges();
+                return RedirectToAction("QLInformation");
         }
 
         public ActionResult QLOrder()

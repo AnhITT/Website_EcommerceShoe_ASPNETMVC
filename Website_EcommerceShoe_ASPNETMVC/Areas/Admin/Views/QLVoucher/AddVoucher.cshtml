@@ -1,0 +1,81 @@
+﻿@model Website_EcommerceShoe_ASPNETMVC.Models.EF.Voucher
+
+@{
+    ViewBag.Title = "AddVoucher";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center ">Thêm Voucher</h2>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.ValidationSummary(true)
+
+
+                                <div>
+                                    Nhập tên Voucher
+                                    <div>
+                                        @Html.TextBoxFor(model => model.nameVoucher, "", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.nameVoucher, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    Mô tả Voucher
+                                    <div>
+                                        @Html.TextBoxFor(model => model.descriptionVoucher, "", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.descriptionVoucher, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    Giá giảm
+                                    <div>
+                                        @Html.TextBoxFor(model => model.priceVoucher, "", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.priceVoucher, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    Số lượng voucher
+                                    <div>
+                                        @Html.TextBoxFor(model => model.quantityVoucher, "", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.quantityVoucher, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    Ngày bắt đầu
+                                    <div>
+                                        <input type="date" name="dateStartVoucher" required autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    Ngày kết thúc
+                                    <div>
+                                        <input type="date" name="dateEndVoucher" required autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    Điều kiện (Đơn hàng > ...?)
+                                    <div>
+                                        @Html.TextBoxFor(model => model.conditionVoucher, "", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.conditionVoucher, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a class="btn btn-dark" href="Index"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
+                                    <input type="submit" value="Thêm Voucher" class="btn btn-success m-3" />
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

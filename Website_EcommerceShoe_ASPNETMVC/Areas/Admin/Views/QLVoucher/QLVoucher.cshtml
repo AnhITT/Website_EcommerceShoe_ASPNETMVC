@@ -1,0 +1,112 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<Website_EcommerceShoe_ASPNETMVC.Models.EF.Voucher>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section style="padding-top: 30px" class="content">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Danh sách Voucher</h2>
+            <div class="card-tools">
+                <a href="/Admin/QLProduct/AddProductSale" class="btn btn-success">Thêm Voucher</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Tên Voucher</th>
+                        <th>Mô tả</th>
+                        <th>Giá giảm Voucher </th>
+                        <th>Số lượng Voucher </th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày kết thúc</th>
+                        <th>Điều kiện Voucher</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <tr id="trow_@item.idVoucher">
+                                <td>@item.nameVoucher</td>
+                                <td>@item.descriptionVoucher</td>
+                                <td>
+                                    $@String.Format("{0:0}", item.priceVoucher)
+                                </td>
+                                <td>
+                                    @item.quantityVoucher
+                                </td>
+
+                                <td>
+                                    @item.dateStartVoucher
+                                </td>
+                                <td>
+                                    @item.dateEndVoucher
+                                </td>
+                                <td>
+                                  > $@String.Format("{0:0}", item.conditionVoucher)
+                                </td>
+
+                                <td width="170px">
+                                    <a href="/Admin/QLProduct/ListSale/@item.idVoucher" class="btn btn-sm btn-success"><i class="fa-solid fa-list"></i></a>
+                                    <a href="/Admin/QLProduct/EditSale/@item.idVoucher" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" data-id="@item.idVoucher" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8">Không có Voucher nào!!!</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</section>
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("QLVoucher", new { page = page }), new PagedListRenderOptions { LiElementClasses = new string[] { "page-item btn btn-sm btn-primary mx-1" } })
+</div>
+
+<style>
+    .page-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa mã sale này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/Admin/QLProduct/DeleteProductSale',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+}
+

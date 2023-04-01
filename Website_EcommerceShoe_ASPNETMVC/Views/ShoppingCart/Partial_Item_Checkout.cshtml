@@ -3,6 +3,36 @@
 @if (Model != null && Model.Any())
 {
     var tongtien = decimal.Zero;
+    var total = decimal.Zero;
+    /*
+    <div class="rounded d-flex flex-column p-2 mb-2" style="background-color: #f8f9fa;">
+        <div class="p-2 me-3 text-center">
+            <h3>Do you use vouchers?</h3>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <span class="text-success">
+                @ViewData["Success"]
+            </span>
+            <span class="text-danger">
+                @ViewData["ErrorQuantity"]
+                @ViewData["ErrorDate"]
+                @ViewData["ErrorNull"]
+            </span>
+            <div class="input-group col-md-12">
+                <input type="text" class="form-control" id="example-search-input" name="Voucher" />
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        }
+    </div>
+    */
     <div class="rounded d-flex flex-column p-2" style="background-color: #f8f9fa;">
         <div class="p-2 me-3 text-center">
             <h3>Order</h3>
@@ -10,10 +40,11 @@
         @foreach (var item in Model)
         {
             tongtien += item.TotalPrice;
+            total = item.Price * item.Quantity;
             <div class="p-2 d-flex">
-                <div class="col-5"><img src="~/Content/Image/Product/@item.ProductImg" height="100"/></div>
+                <div class="col-5"><img src="~/Content/Image/Product/@item.ProductImg" height="100" /></div>
                 <div class="col-5 mt-4">@item.ProductName X @item.Quantity</div>
-                <div class="col-2 mt-4">$@String.Format("{0:0}", item.Price)</div>
+                <div class="col-2 mt-4">$@String.Format("{0:0}", total)</div>
             </div>
         }
         <div class="border-top px-2 mx-2"></div>

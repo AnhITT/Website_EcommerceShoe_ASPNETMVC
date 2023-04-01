@@ -50,8 +50,8 @@
                         <p class="mt-3">
                             Note
                             @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-
                         </p>
+                       
                         <div class="rounded d-flex" style="background-color: #f8f9fa;">
 
                         </div>
@@ -87,7 +87,6 @@
                     }
                 </div>
                 <div class="col-lg-6">
-
                     @Html.Action("Partial_Item_Checkout", "ShoppingCart")
                 </div>
             </div>

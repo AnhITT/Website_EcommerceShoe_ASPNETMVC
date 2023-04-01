@@ -242,6 +242,8 @@
     <Compile Include="Areas\Admin\Controllers\ImageProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLOrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLVoucherController.cs" />
+    <Compile Include="Common\Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -251,13 +253,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202303291023315_update.cs" />
-    <Compile Include="Migrations\202303291023315_update.designer.cs">
-      <DependentUpon>202303291023315_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202303291040502_updates.cs" />
-    <Compile Include="Migrations\202303291040502_updates.designer.cs">
-      <DependentUpon>202303291040502_updates.cs</DependentUpon>
+    <Compile Include="Migrations\202303301007159_Voucher.cs" />
+    <Compile Include="Migrations\202303301007159_Voucher.designer.cs">
+      <DependentUpon>202303301007159_Voucher.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -276,10 +274,10 @@
     <Compile Include="Models\EF\PaymentMethod.cs" />
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductSale.cs" />
+    <Compile Include="Models\EF\Voucher.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\EF\ShoppingCart.cs" />
     <Compile Include="Models\EF\Sizes.cs" />
-    <Compile Include="Models\EF\Voucher.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -537,6 +535,7 @@
     <Content Include="Content\Image\Icons\icons8-microsoft-people-48.png" />
     <Content Include="Content\Image\Icons\icons8-twitter-48.png" />
     <Content Include="Content\Image\Background\b1.png" />
+    <Content Include="Content\Mail\SendMail.html" />
     <Content Include="Content\owlcarousel\assets\ajax-loader.gif" />
     <Content Include="Content\owlcarousel\assets\owl.carousel.css" />
     <Content Include="Content\owlcarousel\assets\owl.carousel.min.css" />
@@ -622,6 +621,8 @@
     <Content Include="Areas\Admin\Views\QLProduct\QLProductSale.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\ListSale.cshtml" />
     <Content Include="Areas\Admin\Views\QLProduct\EditSale.cshtml" />
+    <Content Include="Areas\Admin\Views\QLVoucher\QLVoucher.cshtml" />
+    <Content Include="Areas\Admin\Views\QLVoucher\AddVoucher.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\CartJs.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -758,11 +759,11 @@
     <Content Include="Views\User\QLInformation.cshtml" />
     <Content Include="Views\User\_PartialProfileOverview.cshtml" />
     <Content Include="Views\User\_PartialChangePassword.cshtml" />
-    <Content Include="Views\User\EditInformationUser.cshtml" />
     <Content Include="Views\User\QLOrder.cshtml" />
     <Content Include="Views\User\Detail.cshtml" />
     <Content Include="Views\User\CancelOrder.cshtml" />
     <Content Include="Views\Product\Sale.cshtml" />
+    <Content Include="Views\User\EditInformationUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -805,11 +806,8 @@
     <TypeScriptCompile Include="tinymce_6.3.2\tinymce\js\tinymce\tinymce.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202303291023315_update.resx">
-      <DependentUpon>202303291023315_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202303291040502_updates.resx">
-      <DependentUpon>202303291040502_updates.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202303301007159_Voucher.resx">
+      <DependentUpon>202303301007159_Voucher.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
